@@ -28,26 +28,26 @@ extension WistiaDataItem {
 /// The object to encapsulate Wistia related functions and data.
 public class Wistia {
     
-    static var debugMode: Bool = false
+    public static var debugMode: Bool = false
     
     static var sharedInstance: Wistia = Wistia()
     
     /// The global API Password for singleton use
-    static var api_password: String {
+    public static var api_password: String {
         return sharedInstance.api_password
     }
     
     /// The global API Password for singleton use
-    static var numberOfProjects: Int {
+    public static var numberOfProjects: Int {
         return sharedInstance.projects.count
     }
     
-    static var numberOfMedias: Int {
+    public static var numberOfMedias: Int {
         return sharedInstance.medias.count
     }
     
-    var projects: [Project] = []
-    var medias: [Media] = []
+    public var projects: [Project] = []
+    public var medias: [Media] = []
     
     /// API Password for a given instance
     private var api_password: String = ""

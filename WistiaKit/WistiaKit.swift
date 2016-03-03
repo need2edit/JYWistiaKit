@@ -136,10 +136,10 @@ public func List(requestType: WistiaCollectionRequestType, completionHandler: (i
                 // FIXME: Youre tired and taking a shortcut, handle this with generics in the future
                 if requestType == .Projects {
                     let items = json.flatMap { Project(json: $0) }
-                    completionHandler(items: items as [WistiaDataItem])
+                    completionHandler(items: items.map { $0 as WistiaDataItem })
                 } else {
                     let items = json.flatMap { Media(json: $0) }
-                    completionHandler(items: items as [WistiaDataItem])
+                    completionHandler(items: items.map { $0 as WistiaDataItem })
                 }
                 
             }

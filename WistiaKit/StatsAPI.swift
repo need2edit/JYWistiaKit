@@ -1,5 +1,5 @@
 //
-//  Error.swift
+//  StatsAPI.swift
 //  WistiaKit
 //
 //  Created by Jake Young on 3/2/16.

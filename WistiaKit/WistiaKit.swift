@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+/*
+
+We'll use Wistia's wonderful Data API as our bluprint.
+
+*/
+
+public func request(route: DataAPI.Router) {
+    print(route.URL)
+}

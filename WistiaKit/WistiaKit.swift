@@ -69,7 +69,7 @@ public typealias Asset = String
 /// The object to encapsulate Wistia related functions and data.
 public class Wistia {
     
-    static var debugMode: Bool = true
+    static var debugMode: Bool = false
     
     static var sharedInstance: Wistia = Wistia()
     
@@ -129,8 +129,10 @@ public func List(requestType: WistiaCollectionRequestType, completionHandler: (i
         
         do {
             
-            if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [[String: AnyObject?]] {
+            if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [[String: AnyObject]] {
                
+                print(json)
+                
                 // FIXME: Youre tired and taking a shortcut, handle this with generics in the future
                 if requestType == .Projects {
                     let items = json.flatMap { Project(json: $0) }

@@ -14,74 +14,6 @@ We'll use Wistia's wonderful Data API as our bluprint.
 
 */
 
-/// A request for an multiple Wistia Items, such as a Projects or Medias.
-public enum WistiaCollectionRequestType: CustomStringConvertible {
-    case Projects
-    case Medias
-    
-    var URL: NSURL? {
-        
-        var authenticatedURL: NSURL?
-        
-        switch self {
-        case .Projects:
-            authenticatedURL = DataAPI.Router.ListProjects.URL
-        case .Medias:
-            authenticatedURL = DataAPI.Router.ListMedias.URL
-        }
-        
-        let URLParams = [
-            "api_password": "\(Wistia.api_password)",
-        ]
-        
-        return authenticatedURL?.URLByAppendingQueryParameters(URLParams)
-        
-    }
-    
-    public var description: String {
-        
-        switch self {
-            
-            case .Projects:
-                return "Requesting Projects"
-            case .Medias:
-                return "Requesting Medias"
-            
-        }
-        
-    }
-}
-
-/// A request for an individual Wistia Item, such as a Project or Media.
-public enum WistiaItemRequestType: CustomStringConvertible {
-    
-    case Project(hashedId: String)
-    case Media(hashedId: String)
-    
-    var URL: NSURL? {
-        switch self {
-        case .Project(let hashedId):
-            return DataAPI.Router.ShowProject(hashed_id: hashedId).URL
-        case .Media(let hashedId):
-            return DataAPI.Router.ShowMedia(hashed_id: hashedId).URL
-        }
-    }
-    
-    public var description: String {
-        
-        switch self {
-            
-        case .Project(let hashedId):
-            return "Requesting Project with Hashed ID: \(hashedId)"
-        case .Media(let hashedId):
-            return "Requesting Media with Hashed ID: \(hashedId)"
-            
-        }
-        
-    }
-    
-}
-
 /// A generic item from the Wistia object graph. These are usually Projects or Medias.
 public protocol WistiaDataItem: CustomStringConvertible {
     var hashedId: String { get set }
@@ -140,9 +72,23 @@ public func request(route: DataAPI.Router) {
     
 }
 
-public func List(requestType: WistiaCollectionRequestType, completionHandler: (items: [WistiaDataItem]) -> Void) {
+// TODO: This request could be encapsulated
+
+public func List(requestType: WistiaCollectionRequestType, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [WistiaDataItem]) -> Void) {
     
-    guard let URL = requestType.URL else { return }
+    let URLParams = [
+        "page": "\(page)",
+        "per_page": "\(per_page)",
+        "sort_by": "\(sortBy.rawValue)",
+        "sort_direction": "\(sortDirection.rawValue)",
+        "api_password": "\(Wistia.api_password)",
+    ]
+    
+    guard let URL = requestType.URL?.URLByAppendingQueryParameters(URLParams) else { return }
+    
+    if Wistia.debugMode {
+        print(URL)
+    }
     
     let task = NSURLSession.sharedSession().dataTaskWithURL(URL) { (let data, let response, let error) -> Void in
         
@@ -183,7 +129,11 @@ public func List(requestType: WistiaCollectionRequestType, completionHandler: (i
 
 public func Show(requestType: WistiaItemRequestType, completionHandler: (item: WistiaDataItem?) -> Void) {
     
-    guard let URL = requestType.URL else { return }
+    let URLParams = [
+        "api_password": "\(Wistia.api_password)",
+    ]
+    
+    guard let URL = requestType.URL?.URLByAppendingQueryParameters(URLParams) else { return }
     
     let task = NSURLSession.sharedSession().dataTaskWithURL(URL) { (let data, let response, let error) -> Void in
         

@@ -8,6 +8,70 @@
 
 import Foundation
 
+/// A request for an multiple Wistia Items, such as a Projects or Medias.
+public enum WistiaCollectionRequestType: CustomStringConvertible {
+    case Projects
+    case Medias
+    
+    var URL: NSURL? {
+        
+        var URL: NSURL?
+        
+        switch self {
+        case .Projects:
+            URL = DataAPI.Router.ListProjects.URL
+        case .Medias:
+            URL = DataAPI.Router.ListMedias.URL
+        }
+        
+        return URL
+        
+    }
+    
+    public var description: String {
+        
+        switch self {
+            
+        case .Projects:
+            return "Requesting Projects"
+        case .Medias:
+            return "Requesting Medias"
+            
+        }
+        
+    }
+}
+
+/// A request for an individual Wistia Item, such as a Project or Media.
+public enum WistiaItemRequestType: CustomStringConvertible {
+    
+    case Project(hashedId: String)
+    case Media(hashedId: String)
+    
+    var URL: NSURL? {
+        switch self {
+        case .Project(let hashedId):
+            return DataAPI.Router.ShowProject(hashed_id: hashedId).URL
+        case .Media(let hashedId):
+            return DataAPI.Router.ShowMedia(hashed_id: hashedId).URL
+        }
+    }
+    
+    public var description: String {
+        
+        switch self {
+            
+        case .Project(let hashedId):
+            return "Requesting Project with Hashed ID: \(hashedId)"
+        case .Media(let hashedId):
+            return "Requesting Media with Hashed ID: \(hashedId)"
+            
+        }
+        
+    }
+    
+}
+
  /**
  
  The name of the field to sort by. Valid values are name, mediaCount, created, or updated. Defaults to sorting by Project ID.

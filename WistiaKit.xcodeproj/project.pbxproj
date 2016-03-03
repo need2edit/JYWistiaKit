@@ -22,6 +22,7 @@
 		32BA96131C87E8AC00FC46BB /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA96121C87E8AC00FC46BB /* ProjectTests.swift */; };
 		32BA96171C87FA4800FC46BB /* Model+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA96161C87FA4800FC46BB /* Model+JSON.swift */; };
 		32BA961B1C88CDEC00FC46BB /* NSURL+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */; };
+		32BA961D1C88E29800FC46BB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA961C1C88E29800FC46BB /* Request.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		32BA96121C87E8AC00FC46BB /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
 		32BA96161C87FA4800FC46BB /* Model+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Model+JSON.swift"; sourceTree = "<group>"; };
 		32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+QueryParams.swift"; sourceTree = "<group>"; };
+		32BA961C1C88E29800FC46BB /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				32BA95A41C87DB9C00FC46BB /* Model */,
 				32BA95AD1C87E0DA00FC46BB /* API.swift */,
 				32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */,
+				32BA961C1C88E29800FC46BB /* Request.swift */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32BA95AC1C87DC7C00FC46BB /* Router.swift in Sources */,
+				32BA961D1C88E29800FC46BB /* Request.swift in Sources */,
 				32BA959D1C87DB7400FC46BB /* Error.swift in Sources */,
 				32BA961B1C88CDEC00FC46BB /* NSURL+QueryParams.swift in Sources */,
 				32BA95AA1C87DC6100FC46BB /* StatsAPI.swift in Sources */,

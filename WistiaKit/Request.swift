@@ -7,3 +7,107 @@
 //
 
 import Foundation
+
+ /**
+ 
+ The name of the field to sort by. Valid values are name, mediaCount, created, or updated. Defaults to sorting by Project ID.
+
+ */
+public enum SortByDescriptor: String {
+    case Name = "name"
+    case MediaCount = "mediaCount"
+    case Created = "created"
+    case Updated = "updated"
+}
+
+/**
+ 
+ Specifies the direction of the sort, defaults to '1'. 1 = ascending, 0 = descending.
+ 
+ */
+
+public enum SortDirection: Int {
+    case Ascending = 1
+    case Descending = 0
+}
+
+/**
+ 
+ You can get your results back in chunks. In order to set the page size and/or the number of pages that you want to see, use the following query parameters:
+ 
+  - Parameters:
+      - page: Specifies which page of the results you want to see. Defaults to 1 (not 0).
+      - perPage: The number of results you want to get back per request. The maximum value of this parameter is 100. Defaults to 10.
+ 
+*/
+
+protocol SupportsPaging {
+    
+    /// Specifies which page of the results you want to see. Defaults to 1 (not 0).
+    var page: Int { get set }
+    var per_page: Int { get set }
+    
+}
+
+/**
+ 
+ You can get your results back in chunks. In order to set the page size and/or the number of pages that you want to see, use the following query parameters:
+ 
+ - Parameters:
+    - sortBy: The name of the field to sort by. Valid values are name, mediaCount, created, or updated. Defaults to sorting by Project ID.
+    - sortDirection: Specifies the direction of the sort, defaults to '1'. 1 = ascending, 0 = descending.
+ 
+ */
+
+protocol SupportsSorting {
+    
+    /// Specifies which page of the results you want to see. Defaults to 1 (not 0).
+    var sortBy: SortByDescriptor { get set }
+    
+    // Specifies the direction of the sort, defaults to '1'. 1 = ascending, 0 = descending.
+    var sortDirection: SortDirection { get set }
+    
+}
+
+protocol WistiaMethod {
+    
+    /// Wistia Methods My Provide Query Parameters
+    var queryParams: String? { get }
+    
+}
+
+/**
+ 
+ **Paging and Sorting Responses**
+ 
+ The list methods in the API support paging, sorting, and filtering of results. Filtering will be covered in the individual methods.
+ 
+**Paging**
+ 
+ You can get your results back in chunks. In order to set the page size and/or the number of pages that you want to see, use the following query parameters:
+ 
+ - Parameters:
+    - page: Specifies which page of the results you want to see. Defaults to 1 (not 0).
+    - perPage: The number of results you want to get back per request. The maximum value of this parameter is 100. Defaults to 10.
+ 
+ **Sorting**
+ 
+ You can sort the results you receive based on a field you specify. To specify how you want the results to be sorted, append one or both of the following query parameters to the request URL:
+ 
+ - Parameters:
+    - sortBy: The name of the field to sort by. Valid values are name, mediaCount, created, or updated. Defaults to sorting by Project ID.
+    - sortDirection: Specifies the direction of the sort, defaults to '1'. 1 = ascending, 0 = descending.
+ 
+ For example, if you want to sort your results in descending order by the date created, your request URL would look something like this:
+ 
+ ```swift
+ 
+    https://api.wistia.com/v1/projects.json?sort_by=created&sort_direction=0
+ 
+ ```
+ 
+*/
+
+protocol WistiaListMethod: SupportsPaging, SupportsSorting {
+    
+}

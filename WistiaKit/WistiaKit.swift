@@ -16,8 +16,29 @@ We'll use Wistia's wonderful Data API as our bluprint.
 
 /// A request for an multiple Wistia Items, such as a Projects or Medias.
 public enum WistiaCollectionRequestType: CustomStringConvertible {
-    case Projects
-    case Medias
+    
+    case Projects(page: Int, per_page: Int, sort_by: Int, sort_direction: Int)
+    case Medias(page: Int, per_page: Int, sort_by: Int, sort_direction: Int)
+    
+    var pagingInformation: (page: Int, per_page: Int) {
+        switch self {
+        case .Projects(page: let page, per_page: let perPage, _, _):
+            return (page, perPage)
+        case .Medias(page: let page, per_page: let perPage, _, _):
+            return (page, perPage)
+        }
+    }
+    
+    var sortingInformation: (sort_by: Int, sort_direction: Int) {
+        
+        switch self {
+        case .Projects(_, _, let sort_by, let sort_direction):
+            return (sort_by, sort_direction)
+        case .Medias(_, _, let sort_by, let sort_direction):
+            return (sort_by, sort_direction)
+        }
+        
+    }
     
     var URL: NSURL? {
         
@@ -32,6 +53,10 @@ public enum WistiaCollectionRequestType: CustomStringConvertible {
         
         let URLParams = [
             "api_password": "\(Wistia.api_password)",
+            "page": "\(self.pagingInformation.page)",
+            "per_page": "\(self.pagingInformation.per_page)",
+            "sort_by": "\(self.sortingInformation.sort_by)",
+            "sort_direction": "\(self.sortingInformation.sort_direction)",
         ]
         
         return authenticatedURL?.URLByAppendingQueryParameters(URLParams)
@@ -158,13 +183,13 @@ public func List(requestType: WistiaCollectionRequestType, completionHandler: (i
                     print(json)
                 }
                 
-                // FIXME: Youre tired and taking a shortcut, handle this with generics in the future
-                if requestType == .Projects {
-                    let items = json.flatMap { Project(json: $0) }
-                    completionHandler(items: items.map { $0 as WistiaDataItem })
-                } else {
-                    let items = json.flatMap { Media(json: $0) }
-                    completionHandler(items: items.map { $0 as WistiaDataItem })
+                switch requestType {
+                    case .Projects:
+                        let items = json.flatMap { Project(json: $0) }
+                        completionHandler(items: items.map { $0 as WistiaDataItem })
+                    case .Medias:
+                        let items = json.flatMap { Media(json: $0) }
+                        completionHandler(items: items.map { $0 as WistiaDataItem })
                 }
                 
             }

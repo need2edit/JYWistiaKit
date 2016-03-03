@@ -7,6 +7,8 @@ Written by a big Wistia fan...so this is unofficial.
 
 If you havent heard of Wistia, you're missing out [https://wistia.com].
 
+## v1.0 is just in beta right now... its not even networked yet.  Hope to have this done March 2016.
+
 ## Features
 
 - [x] Easy setup with an API Key

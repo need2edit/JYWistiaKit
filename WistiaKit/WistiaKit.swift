@@ -19,12 +19,17 @@ public enum WistiaCollectionRequestType {
     case Medias
     
     var URL: NSURL? {
+        
+        var authenticatedURL: NSURL?
+        
         switch self {
         case .Projects:
-            return DataAPI.Router.ListProjects.URL
+            authenticatedURL = DataAPI.Router.ListProjects.URL
         case .Medias:
-            return DataAPI.Router.ListMedias.URL
+            authenticatedURL = DataAPI.Router.ListMedias.URL
         }
+        
+        return authenticatedURL?.URLByAppendingPathComponent("?api_password=\(Wistia.api_password)")
     }
 }
 

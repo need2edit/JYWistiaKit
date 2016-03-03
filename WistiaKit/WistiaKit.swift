@@ -63,6 +63,9 @@ public typealias Asset = String
 
 /// The object to encapsulate Wistia related functions and data.
 public class Wistia {
+    
+    static var debugMode: Bool = true
+    
     static var sharedInstance: Wistia = Wistia()
     
     /// The global API Password for singleton use
@@ -110,6 +113,12 @@ public func List(requestType: WistiaCollectionRequestType, completionHandler: (i
     guard let URL = requestType.URL else { return }
     
     let task = NSURLSession.sharedSession().dataTaskWithURL(URL) { (let data, let response, let error) -> Void in
+        
+        if Wistia.debugMode {
+            print(data)
+            print(response)
+            print(error)
+        }
         
         guard let data = data else { return }
         

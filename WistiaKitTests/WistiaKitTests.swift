@@ -9,6 +9,7 @@
 import XCTest
 @testable import WistiaKit
 
+// TODO: Write some Unit Tests
 class WistiaKitTests: XCTestCase {
     
     override func setUp() {

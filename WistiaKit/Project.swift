@@ -27,6 +27,8 @@ public class Project: WistiaDataItem {
     public var created: String
     public var updated: String
     
+    public var medias: [Media]?
+    
     public init(id: Int, hashedId: String, publicId: String, name: String, summary: String, updated: String, created: String, mediaCount: Int, anonymousCanUpload: Bool = false, anonymousCanDownload: Bool = false) {
         
         self.id = id

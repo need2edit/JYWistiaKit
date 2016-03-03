@@ -14,6 +14,7 @@ We'll use Wistia's wonderful Data API as our bluprint.
 
 */
 
+/// A request for an multiple Wistia Items, such as a Projects or Medias.
 public enum WistiaCollectionRequestType {
     case Projects
     case Medias
@@ -38,7 +39,9 @@ public enum WistiaCollectionRequestType {
     }
 }
 
+/// A request for an individual Wistia Item, such as a Project or Media.
 public enum WistiaItemRequestType {
+    
     case Project(hashedId: String)
     case Media(hashedId: String)
     
@@ -50,6 +53,7 @@ public enum WistiaItemRequestType {
             return DataAPI.Router.ShowMedia(hashed_id: hashedId).URL
         }
     }
+    
 }
 
 /// A generic item from the Wistia object graph. These are usually Projects or Medias.
@@ -62,9 +66,6 @@ extension WistiaDataItem {
         return "Hashed ID: \(self.hashedId)"
     }
 }
-
-// TODO: Using type aliases for now until we have concrete objects to work with
-public typealias Asset = String
 
 /// The object to encapsulate Wistia related functions and data.
 public class Wistia {

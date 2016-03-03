@@ -1,48 +1,12 @@
 //
-//  Networker.swift
+//  NSURL+QueryParams.swift
 //  WistiaKit
 //
-//  Created by Jake Young on 3/2/16.
+//  Created by Jake Young on 3/3/16.
 //  Copyright © 2016 Jake Young. All rights reserved.
 //
 
 import Foundation
-
-class Networking {
-    
-    
-    
-}
-
-extension Project {
-    
-    convenience init?(json: [String: AnyObject]) {
-        guard let hashedId = json["hashedId"] as? String else { return nil }
-        
-        let publicId = json["publicId"] as? String ?? ""
-        let id = json["id"] as? Int ?? -1
-        let mediaCount = json["mediaCount"] as? Int ?? 0
-        let name = json["name"] as? String ?? ""
-        let description = json["description"] as? String ?? ""
-        let created = json["created"] as? String ?? ""
-        let updated = json["updated"] as? String ?? ""
-        
-        let anonymousCanUpload = json["anonymousCanUpload"] as? Bool ?? false
-        let anonymousCanDownload = json["anonymousCanDownload"] as? Bool ?? false
-        
-        self.init(id: id, hashedId: hashedId, publicId: publicId, name: name, summary: description, updated: updated, created: created, mediaCount: mediaCount, anonymousCanUpload: anonymousCanUpload, anonymousCanDownload: anonymousCanDownload)
-    }
-    
-}
-
-extension Media {
-    
-    convenience init?(json: [String: AnyObject]) {
-        guard let hashedId = json["hashedId"] as? String else { return nil }
-        self.init(hashedId: hashedId)
-    }
-    
-}
 
 // MARK: URL Parameter Extension, Clever bit from Paw NSURLSession Extension
 

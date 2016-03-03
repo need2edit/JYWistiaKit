@@ -15,7 +15,7 @@ We'll use Wistia's wonderful Data API as our bluprint.
 */
 
 /// A request for an multiple Wistia Items, such as a Projects or Medias.
-public enum WistiaCollectionRequestType {
+public enum WistiaCollectionRequestType: CustomStringConvertible {
     case Projects
     case Medias
     
@@ -37,10 +37,23 @@ public enum WistiaCollectionRequestType {
         return authenticatedURL?.URLByAppendingQueryParameters(URLParams)
         
     }
+    
+    public var description: String {
+        
+        switch self {
+            
+            case .Projects:
+                return "Requesting Projects"
+            case .Medias:
+                return "Requesting Medias"
+            
+        }
+        
+    }
 }
 
 /// A request for an individual Wistia Item, such as a Project or Media.
-public enum WistiaItemRequestType {
+public enum WistiaItemRequestType: CustomStringConvertible {
     
     case Project(hashedId: String)
     case Media(hashedId: String)
@@ -52,6 +65,19 @@ public enum WistiaItemRequestType {
         case .Media(let hashedId):
             return DataAPI.Router.ShowMedia(hashed_id: hashedId).URL
         }
+    }
+    
+    public var description: String {
+        
+        switch self {
+            
+        case .Project(let hashedId):
+            return "Requesting Project with Hashed ID: \(hashedId)"
+        case .Media(let hashedId):
+            return "Requesting Media with Hashed ID: \(hashedId)"
+            
+        }
+        
     }
     
 }
@@ -120,19 +146,17 @@ public func List(requestType: WistiaCollectionRequestType, completionHandler: (i
     
     let task = NSURLSession.sharedSession().dataTaskWithURL(URL) { (let data, let response, let error) -> Void in
         
-        if Wistia.debugMode {
-            print(data)
-            print(response)
-            print(error)
-        }
-        
         guard let data = data else { return }
         
         do {
             
             if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [[String: AnyObject]] {
                
-                print(json)
+                
+                if Wistia.debugMode {
+                    print(requestType.description)
+                    print(json)
+                }
                 
                 // FIXME: Youre tired and taking a shortcut, handle this with generics in the future
                 if requestType == .Projects {
@@ -159,7 +183,52 @@ public func List(requestType: WistiaCollectionRequestType, completionHandler: (i
 
 public func Show(requestType: WistiaItemRequestType, completionHandler: (item: WistiaDataItem?) -> Void) {
     
-    // TODO: Need to implement this
-    completionHandler(item: nil)
+    guard let URL = requestType.URL else { return }
+    
+    let task = NSURLSession.sharedSession().dataTaskWithURL(URL) { (let data, let response, let error) -> Void in
+        
+        if Wistia.debugMode {
+            print(data)
+            print(response)
+            print(error)
+        }
+        
+        guard let data = data else { return }
+        
+        do {
+            
+            if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [String: AnyObject] {
+                
+                
+                // TODO: Error Handling for Attempted Initialization
+                
+                if Wistia.debugMode {
+                    print(requestType.description)
+                    print(json)
+                }
+                
+                // TODO: This could be handled by a generic / protocol with a standard initilizer
+                switch requestType {
+                    
+                case .Project:
+                    completionHandler(item: Project(json: json))
+                case .Media:
+                    completionHandler(item: Media(json: json))
+                    
+                }
+                
+            }
+            
+            
+        } catch {
+            // TODO: Error Handling for No Result
+            completionHandler(item: nil)
+            
+        }
+        
+        
+    }
+    
+    task.resume()
     
 }

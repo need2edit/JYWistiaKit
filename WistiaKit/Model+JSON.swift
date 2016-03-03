@@ -12,7 +12,15 @@ import Foundation
 
 extension Project {
     
-    /// Optional Initializer from JSON
+    
+    /**
+     
+     Intilizer with JSON.
+     
+     - returns: Project?
+     - parameter json: `[String: AnyObject]` The JSON for the project item.
+     
+     */
     public convenience init?(json: [String: AnyObject]) {
         guard let hashedId = json["hashedId"] as? String else { return nil }
         

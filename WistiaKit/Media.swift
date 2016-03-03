@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+public class Media: WistiaDataItem {
+    
+    public var hashedId: String
+    
+    public init(hashedId: String) {
+        self.hashedId = hashedId
+    }
+}

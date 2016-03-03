@@ -17,11 +17,29 @@ We'll use Wistia's wonderful Data API as our bluprint.
 public enum WistiaCollectionRequestType {
     case Projects
     case Medias
+    
+    var URL: NSURL? {
+        switch self {
+        case .Projects:
+            return DataAPI.Router.ListProjects.URL
+        case .Medias:
+            return DataAPI.Router.ListMedias.URL
+        }
+    }
 }
 
 public enum WistiaItemRequestType {
     case Project(hashedId: String)
     case Media(hashedId: String)
+    
+    var URL: NSURL? {
+        switch self {
+        case .Project(let hashedId):
+            return DataAPI.Router.ShowProject(hashed_id: hashedId).URL
+        case .Media(let hashedId):
+            return DataAPI.Router.ShowMedia(hashed_id: hashedId).URL
+        }
+    }
 }
 
 /// A generic item from the Wistia object graph. These are usually Projects or Medias.
@@ -84,7 +102,36 @@ public func request(route: DataAPI.Router) {
 
 public func List(requestType: WistiaCollectionRequestType, completionHandler: (items: [WistiaDataItem]) -> Void) {
     
-    completionHandler(items: [])
+    guard let URL = requestType.URL else { return }
+    
+    let task = NSURLSession.sharedSession().dataTaskWithURL(URL) { (let data, let response, let error) -> Void in
+        
+        guard let data = data else { return }
+        
+        do {
+            
+            if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [[String: AnyObject?]] {
+               
+                // FIXME: Youre tired and taking a shortcut, handle this with generics in the future
+                if requestType == .Projects {
+                    let items = json.flatMap { Project(json: $0) }
+                    completionHandler(items: items)
+                } else {
+                    let items = json.flatMap { Media(json: $0) }
+                    completionHandler(items: items)
+                }
+                
+            }
+            
+            
+        } catch {
+            completionHandler(items: [])
+        }
+        
+        
+    }
+    
+    task.resume()
     
 }
 

@@ -17,9 +17,9 @@ If you havent heard of Wistia, you're missing out [https://wistia.com].
 
 ## Upcoming Features
 
-- [] Error Handling
-- [] Video Playback with AVKit
-- [] Video Playback with UIWebView supporting Wistia Analytics
+- Error Handling consistent with the API documentation
+- Video Playback with AVKit
+- Video Playback with UIWebView supporting Wistia Analytics
 
 ## Resources
 

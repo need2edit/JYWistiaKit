@@ -29,7 +29,12 @@ public enum WistiaCollectionRequestType {
             authenticatedURL = DataAPI.Router.ListMedias.URL
         }
         
-        return authenticatedURL?.URLByAppendingPathComponent("?api_password=\(Wistia.api_password)")
+        let URLParams = [
+            "api_password": "\(Wistia.api_password)",
+        ]
+        
+        return authenticatedURL?.URLByAppendingQueryParameters(URLParams)
+        
     }
 }
 

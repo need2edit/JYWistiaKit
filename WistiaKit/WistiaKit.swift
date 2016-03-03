@@ -158,13 +158,7 @@ public func List(requestType: WistiaCollectionRequestType, completionHandler: (i
 
 public func Show(requestType: WistiaItemRequestType, completionHandler: (item: WistiaDataItem?) -> Void) {
     
-    switch requestType {
-    case .Project(let hashedId):
-        completionHandler(item: Project(hashedId: hashedId))
-    case .Media(let hashedId):
-        completionHandler(item: Media(hashedId: hashedId))
-    }
-    
+    // TODO: Need to implement this
     completionHandler(item: nil)
     
 }

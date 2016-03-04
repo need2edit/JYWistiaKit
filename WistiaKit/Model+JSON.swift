@@ -42,7 +42,7 @@ extension Project {
         // Begin Adding Values that May Not Be Present in Various Contexts like "List" vs. "Show"
         if let mediaJSON = json["medias"] as? [[String: AnyObject]] {
             self.medias = mediaJSON.flatMap { Media(json: $0) }.sort({ (lhs, rhs) -> Bool in
-                lhs.name > rhs.name
+                lhs.name < rhs.name
             })
         }
     }

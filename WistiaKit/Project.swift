@@ -68,7 +68,7 @@ public class Project: WistiaDataItem, WistiaCollectionItem, WistiaProjectDataSou
         let allSections = medias.flatMap { $0.section }
         let uniqueSections = Set<String>(allSections)
         
-        return Array(uniqueSections).sort(>)
+        return Array(uniqueSections).sort(<)
         
         
     }

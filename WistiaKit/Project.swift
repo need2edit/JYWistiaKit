@@ -27,7 +27,7 @@ import Foundation
  - parameter publicId: `String` If the project is public, this field contains a string representing the ID used for referencing the project in public URLs.
 
 */
-public class Project: WistiaDataItem {
+public class Project: WistiaDataItem, WistiaCollectionItem {
     
     public var id: Int
     

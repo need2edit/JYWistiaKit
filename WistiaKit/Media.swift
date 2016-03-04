@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Media: WistiaDataItem {
+public class Media: WistiaDataItem, WistiaCollectionItem {
     
     public var id: Int
     

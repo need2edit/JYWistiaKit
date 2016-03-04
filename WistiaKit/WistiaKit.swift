@@ -20,7 +20,7 @@ public protocol WistiaCollectionItem: CustomStringConvertible {
 }
 
 /// A generic item from the Wistia object graph. These are usually Projects or Medias.
-public protocol WistiaDataItem: CustomStringConvertible, WistiaCollectionItem {
+public protocol WistiaDataItem: CustomStringConvertible {
     var hashedId: String { get set }
 }
 

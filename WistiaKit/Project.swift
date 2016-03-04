@@ -12,6 +12,8 @@ protocol WistiaProjectDataSource {
     
     var sections: [String] { get }
     
+    func itemsForSection(section: Int) -> [Media]?
+    func itemsForSection(sectionTitle: String) -> [Media]?
     func itemAtIndexPath(indexPath: NSIndexPath) -> Media?
     
 }
@@ -70,11 +72,18 @@ public class Project: WistiaDataItem, WistiaCollectionItem, WistiaProjectDataSou
         
     }
     
+    func itemsForSection(sectionTitle: String) -> [Media]? {
+        return medias?.filter( { $0.section == sectionTitle })
+    }
+    
+    func itemsForSection(section: Int) -> [Media]? {
+        let sectionTitle = sections[section]
+        return itemsForSection(sectionTitle)
+    }
+    
     public func itemAtIndexPath(indexPath: NSIndexPath) -> Media? {
         
-        let sectionTitle = sections[indexPath.section]
-        let sectionItems = medias?.filter( { $0.section == sectionTitle })
-        return sectionItems?[indexPath.row]
+        return itemsForSection(indexPath.section)?[indexPath.row]
         
     }
     

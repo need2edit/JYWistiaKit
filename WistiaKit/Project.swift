@@ -8,6 +8,14 @@
 
 import Foundation
 
+protocol WistiaProjectDataSource {
+    
+    var sections: [String] { get }
+    
+    func itemAtIndexPath(indexPath: NSIndexPath) -> Media?
+    
+}
+
 /**
  
  **Projects** are the main organizational objects within Wistia. Media must be stored within Projects.
@@ -27,7 +35,7 @@ import Foundation
  - parameter publicId: `String` If the project is public, this field contains a string representing the ID used for referencing the project in public URLs.
 
 */
-public class Project: WistiaDataItem, WistiaCollectionItem {
+public class Project: WistiaDataItem, WistiaCollectionItem, WistiaProjectDataSource {
     
     public var id: Int
     
@@ -47,6 +55,28 @@ public class Project: WistiaDataItem, WistiaCollectionItem {
     public var updated: String
     
     public var medias: [Media]?
+    
+    public var sections: [String] {
+        
+        // FIXME: The way this is setup right now doesnt allow for nil values
+        
+        // TODO: I never feel good about this, but it works like a charm
+        guard let medias = medias else { return [] }
+        let allSections = medias.flatMap { $0.section }
+        let uniqueSections = Set<String>(allSections)
+        
+        return Array(uniqueSections)
+        
+        
+    }
+    
+    public func itemAtIndexPath(indexPath: NSIndexPath) -> Media? {
+        
+        let sectionTitle = sections[indexPath.section]
+        let sectionItems = medias?.filter( { $0.section == sectionTitle })
+        return sectionItems?[indexPath.row]
+        
+    }
     
     
     public typealias T = Media

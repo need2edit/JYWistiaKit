@@ -62,9 +62,14 @@ extension Media {
         let description = json["description"] as? String ?? ""
         let created = json["created"] as? String ?? ""
         let updated = json["updated"] as? String ?? ""
-
         
-        self.init(id: id, hashedId: hashedId, publicId: publicId, name: name, summary: description, updated: updated, created: created)
+        let section = json["section"] as? String
+        
+        let status = json["status"] as? String
+        
+        let progress = json["progress"] as? Float ?? 1.0
+        
+        self.init(id: id, hashedId: hashedId, publicId: publicId, name: name, summary: description, updated: updated, created: created, assets: [], section: section, progress: progress, status: status, thumbnail: nil)
         
         // Begin Adding Values that May Not Be Present in Various Contexts like "List" vs. "Show"
         if let assetJSON = json["assets"] as? [[String: AnyObject]] {

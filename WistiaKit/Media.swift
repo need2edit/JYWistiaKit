@@ -9,9 +9,15 @@
 import Foundation
 
 public struct Thumbnail {
-    let URL: String
-    let width: Int
-    let height: Int
+    public let URL: String
+    public let width: Int
+    public let height: Int
+    
+    init(URL: String, width: Int, height: Int) {
+        self.URL = URL
+        self.width = width
+        self.height = height
+    }
 }
 
 public class Media: WistiaDataItem, WistiaCollectionItem {

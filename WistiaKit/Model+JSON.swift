@@ -49,6 +49,16 @@ extension Project {
     
 }
 
+extension Thumbnail {
+
+    /// Optional Initializer from JSON
+    public init?(json: [String: AnyObject]) {
+        guard let URL = json["url"] as? String, width = json["width"] as? Int, height = json["height"] as? Int else { return nil }
+        self.init(URL: URL, width: width, height: height)
+    }
+
+}
+
 // MARK: Media Items Parsing
 
 extension Media {
@@ -71,7 +81,13 @@ extension Media {
         
         let progress = json["progress"] as? Float ?? 1.0
         
+        let thumbnailJSON = json["thumbnail"] as? [String: AnyObject]
+        
         self.init(id: id, hashedId: hashedId, publicId: publicId, name: name, summary: description, updated: updated, created: created, assets: [], section: section, progress: progress, status: status, thumbnail: nil)
+        
+        if let thumbnailJSON = thumbnailJSON, thumbnail = Thumbnail(json: thumbnailJSON) {
+            self.thumbnail = thumbnail
+        }
         
         // Begin Adding Values that May Not Be Present in Various Contexts like "List" vs. "Show"
         if let assetJSON = json["assets"] as? [[String: AnyObject]] {

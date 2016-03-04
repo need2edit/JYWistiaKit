@@ -48,6 +48,13 @@ public class Project: WistiaDataItem {
     
     public var medias: [Media]?
     
+    
+    public typealias T = Media
+    
+    public var children: [T] {
+        return medias ?? []
+    }
+    
     /**
      
      **Projects** are the main organizational objects within Wistia. Media must be stored within Projects.

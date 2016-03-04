@@ -24,6 +24,12 @@ public class Media: WistiaDataItem {
     
     public var assets: [Asset] = []
     
+    public typealias T = Asset
+    
+    public var children: [T] {
+        return assets
+    }
+    
     public init(id: Int, hashedId: String, publicId: String, name: String, summary: String, updated: String, created: String, assets: [Asset] = []) {
         
         self.id = id

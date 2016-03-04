@@ -14,8 +14,13 @@ We'll use Wistia's wonderful Data API as our bluprint.
 
 */
 
+public protocol WistiaCollectionItem: CustomStringConvertible {
+    typealias T
+    var children: [T] { get }
+}
+
 /// A generic item from the Wistia object graph. These are usually Projects or Medias.
-public protocol WistiaDataItem: CustomStringConvertible {
+public protocol WistiaDataItem: CustomStringConvertible, WistiaCollectionItem {
     var hashedId: String { get set }
 }
 

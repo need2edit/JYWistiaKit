@@ -53,7 +53,8 @@ extension Media {
     
     /// Optional Initializer from JSON
     public convenience init?(json: [String: AnyObject]) {
-        guard let hashedId = json["hashedId"] as? String else { return nil }
+        
+        guard let hashedId = json["hashedId"] as? String ?? json["hashed_id"] as? String else { return nil }
         
         let publicId = json["publicId"] as? String ?? ""
         let id = json["id"] as? Int ?? -1

@@ -81,7 +81,7 @@ public class SimpleDataSource {
         return sections[section].title
     }
     
-    func itemAtIndexPath(indexPath: NSIndexPath) -> Media? {
+    public func itemAtIndexPath(indexPath: NSIndexPath) -> Media? {
         return sections[indexPath.section].medias[indexPath.row]
     }
     

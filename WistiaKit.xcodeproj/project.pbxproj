@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3234D5581C8A9EEC0007C083 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234D5571C8A9EEC0007C083 /* DataSource.swift */; };
+		3234D55A1C8AA6440007C083 /* MediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234D5591C8AA6440007C083 /* MediaTests.swift */; };
+		3234D55C1C8AA64D0007C083 /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234D55B1C8AA64D0007C083 /* AssetTests.swift */; };
 		32BA95851C87DAB400FC46BB /* WistiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 32BA95841C87DAB400FC46BB /* WistiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32BA958C1C87DAB400FC46BB /* WistiaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32BA95811C87DAB400FC46BB /* WistiaKit.framework */; };
 		32BA95911C87DAB400FC46BB /* WistiaKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95901C87DAB400FC46BB /* WistiaKitTests.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3234D5571C8A9EEC0007C083 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		3234D5591C8AA6440007C083 /* MediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTests.swift; sourceTree = "<group>"; };
+		3234D55B1C8AA64D0007C083 /* AssetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
 		32BA95811C87DAB400FC46BB /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BA95841C87DAB400FC46BB /* WistiaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WistiaKit.h; sourceTree = "<group>"; };
 		32BA95861C87DAB400FC46BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3234D55D1C8AA6660007C083 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				32BA95A91C87DC6100FC46BB /* StatsAPI.swift */,
+				32BA95A71C87DC5800FC46BB /* DataAPI.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		32BA95771C87DAB400FC46BB = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +126,8 @@
 				32BA95901C87DAB400FC46BB /* WistiaKitTests.swift */,
 				32BA95921C87DAB400FC46BB /* Info.plist */,
 				32BA96121C87E8AC00FC46BB /* ProjectTests.swift */,
+				3234D5591C8AA6440007C083 /* MediaTests.swift */,
+				3234D55B1C8AA64D0007C083 /* AssetTests.swift */,
 			);
 			path = WistiaKitTests;
 			sourceTree = "<group>";
@@ -118,14 +135,14 @@
 		32BA959B1C87DB6700FC46BB /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				32BA95A71C87DC5800FC46BB /* DataAPI.swift */,
-				32BA95A91C87DC6100FC46BB /* StatsAPI.swift */,
+				3234D55D1C8AA6660007C083 /* API */,
 				32BA959C1C87DB7400FC46BB /* Error.swift */,
 				32BA95AB1C87DC7C00FC46BB /* Router.swift */,
+				32BA961C1C88E29800FC46BB /* Request.swift */,
+				3234D5571C8A9EEC0007C083 /* DataSource.swift */,
 				32BA95A41C87DB9C00FC46BB /* Model */,
 				32BA95AD1C87E0DA00FC46BB /* API.swift */,
 				32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */,
-				32BA961C1C88E29800FC46BB /* Request.swift */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -258,6 +275,7 @@
 				32BA959F1C87DB7F00FC46BB /* Project.swift in Sources */,
 				32BA96171C87FA4800FC46BB /* Model+JSON.swift in Sources */,
 				32BA95A31C87DB8E00FC46BB /* Asset.swift in Sources */,
+				3234D5581C8A9EEC0007C083 /* DataSource.swift in Sources */,
 				32BA95A81C87DC5800FC46BB /* DataAPI.swift in Sources */,
 				32BA95AE1C87E0DA00FC46BB /* API.swift in Sources */,
 				32BA95A11C87DB8600FC46BB /* Media.swift in Sources */,
@@ -269,6 +287,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				32BA95911C87DAB400FC46BB /* WistiaKitTests.swift in Sources */,
+				3234D55A1C8AA6440007C083 /* MediaTests.swift in Sources */,
+				3234D55C1C8AA64D0007C083 /* AssetTests.swift in Sources */,
 				32BA96131C87E8AC00FC46BB /* ProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

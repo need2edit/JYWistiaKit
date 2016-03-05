@@ -45,6 +45,7 @@ public class Project: WistiaDataItem, WistiaCollectionItem, WistiaProjectDataSou
     public var hashedId: String
     
     public var publicId: String
+    public var viewingIsPublic: Bool
     
     public var name: String
     public var summary: String
@@ -114,11 +115,11 @@ public class Project: WistiaDataItem, WistiaCollectionItem, WistiaProjectDataSou
      - parameter hashedId: `String` A private hashed id, uniquely identifying the project within the system.
      - parameter anonymousCanUpload: `Boolean` A boolean indicating whether or not anonymous uploads are enabled for the project.
      - parameter anonymousCanDownload: `Boolean` A unique numeric identifier for the project within the system.
-     - parameter viewingIsPublic: `Boolean` A boolean indicating whether the project is available for public (anonymous) viewing.  Because public is a reserved keyword in Swift, renaming this for clarity.
      - parameter publicId: `String` If the project is public, this field contains a string representing the ID used for referencing the project in public URLs.
+     - parameter viewingIsPublic: `Boolean` A boolean indicating whether the project is available for public (anonymous) viewing.  Because public is a reserved keyword in Swift, renaming this for clarity.
      
      */
-    public init(id: Int, hashedId: String, publicId: String, name: String, summary: String, updated: String, created: String, mediaCount: Int, anonymousCanUpload: Bool = false, anonymousCanDownload: Bool = false) {
+    public init(id: Int, hashedId: String, publicId: String, name: String, summary: String, updated: String, created: String, mediaCount: Int, anonymousCanUpload: Bool = false, anonymousCanDownload: Bool = false, viewingIsPublic: Bool = false) {
         
         self.id = id
         self.hashedId = hashedId
@@ -135,6 +136,9 @@ public class Project: WistiaDataItem, WistiaCollectionItem, WistiaProjectDataSou
         
         self.updated = updated
         self.created = created
+        
+        self.viewingIsPublic = viewingIsPublic
+        
     }
     
     public var description: String {

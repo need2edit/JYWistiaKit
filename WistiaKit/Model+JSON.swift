@@ -21,12 +21,26 @@ extension Project {
      - parameter json: `[String: AnyObject]` The JSON for the project item.
      
      */
+    
+     /**
+     
+     Optional convenience Initializer for Media items from JSON.
+     
+     Media items will have more or less information provided depending on the requesting context. If you list Media items in a project, you wont get the assets and other info needed for playback. This intilizier works with both scenarios, treating properties that dont show up in a Project's media list response as optional.
+     
+     - returns: Project?
+     
+     Parameters:
+     - json: [String: AnyObject] the JSON as a dictionary object used to create the media item.
+     
+     */
     public convenience init?(json: [String: AnyObject]) {
         guard let hashedId = json["hashedId"] as? String else { return nil }
         
         // TODO: Handle instances where "hashed_id" vs. "hashedId" is used in the API.
         
         let publicId = json["publicId"] as? String ?? ""
+        let viewingIsPublic = json["public"] as? Bool ?? false
         let id = json["id"] as? Int ?? -1
         let mediaCount = json["mediaCount"] as? Int ?? 0
         let name = json["name"] as? String ?? ""
@@ -37,7 +51,7 @@ extension Project {
         let anonymousCanUpload = json["anonymousCanUpload"] as? Bool ?? false
         let anonymousCanDownload = json["anonymousCanDownload"] as? Bool ?? false
         
-        self.init(id: id, hashedId: hashedId, publicId: publicId, name: name, summary: description, updated: updated, created: created, mediaCount: mediaCount, anonymousCanUpload: anonymousCanUpload, anonymousCanDownload: anonymousCanDownload)
+        self.init(id: id, hashedId: hashedId, publicId: publicId, name: name, summary: description, updated: updated, created: created, mediaCount: mediaCount, anonymousCanUpload: anonymousCanUpload, anonymousCanDownload: anonymousCanDownload, viewingIsPublic: viewingIsPublic)
         
         // Begin Adding Values that May Not Be Present in Various Contexts like "List" vs. "Show"
         if let mediaJSON = json["medias"] as? [[String: AnyObject]] {
@@ -51,7 +65,14 @@ extension Project {
 
 extension Thumbnail {
 
-    /// Optional Initializer from JSON
+    /**
+     
+     Optional convenience Initializer for a Thumbnail in the Media response.
+     
+     Parameters:
+     - json: [String: AnyObject] the JSON as a dictionary object used to create the thumbnail item.
+     
+     */
     public init?(json: [String: AnyObject]) {
         guard let URL = json["url"] as? String, width = json["width"] as? Int, height = json["height"] as? Int else { return nil }
         self.init(URL: URL, width: width, height: height)
@@ -63,7 +84,16 @@ extension Thumbnail {
 
 extension Media {
     
-    /// Optional Initializer from JSON
+    /**
+
+     Optional convenience Initializer for Media items from JSON.
+     
+     Media items will have more or less information provided depending on the requesting context. If you list Media items in a project, you wont get the assets and other info needed for playback. This intilizier works with both scenarios, treating properties that dont show up in a Project's media list response as optional.
+     
+     Parameters: 
+        - json: [String: AnyObject] the JSON as a dictionary object used to create the media item.
+    
+    */
     public convenience init?(json: [String: AnyObject]) {
         
         guard let hashedId = json["hashedId"] as? String ?? json["hashed_id"] as? String else { return nil }

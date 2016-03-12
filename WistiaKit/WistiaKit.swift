@@ -79,6 +79,22 @@ public func request(route: DataAPI.Router) {
 
 // TODO: This request could be encapsulated
 
+public func List(requestType: WistiaCollectionRequestType = .Projects, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [Project]) -> Void) {
+    
+    List(requestType, page: page, per_page: per_page, sortBy: sortBy, sortDirection: sortDirection) { (items) -> Void in
+        completionHandler(items: items.map { $0 as Project })
+    }
+    
+}
+
+public func List(requestType: WistiaCollectionRequestType = .Medias, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [Media]) -> Void) {
+    
+    List(requestType, page: page, per_page: per_page, sortBy: sortBy, sortDirection: sortDirection) { (items) -> Void in
+        completionHandler(items: items.map { $0 as Media })
+    }
+    
+}
+
 public func List(requestType: WistiaCollectionRequestType, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [WistiaDataItem]) -> Void) {
     
     let URLParams = [

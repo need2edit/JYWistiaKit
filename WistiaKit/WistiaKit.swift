@@ -79,6 +79,7 @@ public func request(route: DataAPI.Router) {
 
 // TODO: This request could be encapsulated
 
+/// Lists Projects from Wistia Library
 public func List(requestType: WistiaCollectionRequestType = .Projects, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [Project]) -> Void) {
     
     List(requestType, page: page, per_page: per_page, sortBy: sortBy, sortDirection: sortDirection) { (items) -> Void in
@@ -87,6 +88,7 @@ public func List(requestType: WistiaCollectionRequestType = .Projects, page: Int
     
 }
 
+/// Lists Medias from Wistia Library
 public func List(requestType: WistiaCollectionRequestType = .Medias, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [Media]) -> Void) {
     
     List(requestType, page: page, per_page: per_page, sortBy: sortBy, sortDirection: sortDirection) { (items) -> Void in
@@ -95,6 +97,7 @@ public func List(requestType: WistiaCollectionRequestType = .Medias, page: Int =
     
 }
 
+/// Lists Data Items from Wistia Library
 public func List(requestType: WistiaCollectionRequestType, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [WistiaDataItem]) -> Void) {
     
     let URLParams = [
@@ -146,6 +149,21 @@ public func List(requestType: WistiaCollectionRequestType, page: Int = 0, per_pa
     
     task.resume()
     
+}
+
+
+/// Shows Media Item with Hashed Identifier
+public func Show(requestType: WistiaItemRequestType, completionHandler: (item: Media?) -> Void) {
+    Show(requestType) { (item) -> Void in
+        completionHandler(item: item as? Media)
+    }
+}
+
+/// Shows Project Item with Hashed Identifier
+public func Show(requestType: WistiaItemRequestType, completionHandler: (item: Project?) -> Void) {
+    Show(requestType) { (item) -> Void in
+        completionHandler(item: item as? Project)
+    }
 }
 
 public func Show(requestType: WistiaItemRequestType, completionHandler: (item: WistiaDataItem?) -> Void) {

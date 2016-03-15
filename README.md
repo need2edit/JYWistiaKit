@@ -7,12 +7,15 @@ Written by a big Wistia fan...so this is unofficial.
 
 If you havent heard of Wistia, you're missing out [https://wistia.com].
 
-## v1.0 is just in beta right now... its not even networked yet.  Hope to have this done March 2016.
+v0.1 is just in beta right now... Hope to have this all with a v1.0 sometime in March 2016. All of this is subject to change as I reach that milestone.
+
+I prefer Carthage, cocoapods support may come later, but no promises. 
 
 ## Features
 
 - [x] Easy setup with an API Key
 - [x] Wistia Objects for Projects, Medias, and Assets
+- [x] Helpers for working with Wistia Asset URLs
 - [x] Written in a style consistent with the Wistia Data API
 
 ## Upcoming Features
@@ -33,7 +36,7 @@ To communicate with the Wistia backend you'll need and API token.
 
 ```swift
 // Setup your Wistia account
-WistiaKit.setup(api_password: "024f878666115ae66834e2e3c9827523be00be4b27a0298aa672711310614735")
+WistiaKit.setup(api_password: "024f878666115ae66834fdsfase2e3c98b27a0298aa672711310614735")
 ```
 
 ## Usage
@@ -42,7 +45,7 @@ Listing Projects looks like this:
 
 ```swift
 WistiaKit.List(.Projects) { (items) -> Void in
-// Do something with these projects item
+    // Do something with your list of project here
 }
 ```
 
@@ -50,15 +53,15 @@ Listing Medias looks like this:
 
 ```swift
 WistiaKit.List(.Medias) { (items) -> Void in
-// Do something with these medias item
+    // Do something with your list of project here
 }
 ```
 
 Showing a Single Project looks like this:
 
 ```swift
-WistiaKit.Show(.Project(hashedId: "x8371jj")) { (item) -> Void in
-// Do something with this project item
+WistiaKit.Show(.Project(hashedId: "x837d1jj")) { (item) -> Void in
+    // Do something with this project item
 }
 ```
 
@@ -66,6 +69,6 @@ Showing a Single Media looks like this:
 
 ```swift
 WistiaKit.Show(.Media(hashedId: "x8371jj")) { (item) -> Void in
-// Do something with this media item
+    // Do something with this media item
 }
 ```

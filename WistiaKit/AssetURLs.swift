@@ -11,15 +11,15 @@ import Foundation
 extension NSURL {
     
     /**
-    Asset URLs in Wistia take this form:
-    
-    `http://embed.wistia.com/deliveries/43500c9644e43068d8995dcb5ddea82440419eaf.bin`
- 
+     Asset URLs in Wistia take this form:
+     
+     `http://embed.wistia.com/deliveries/43500c9644e43068d8995dcb5ddea82440419eaf.bin`
+     
      - parameter filename: The desired filename.
      - parameter fileExtension: The desired extension for the file.
      
      - returns: Sed do eiusmod tempor.
-    */
+     */
     public func wistiaURLString(filename filename: String = "", fileExtension: String = "bin") -> NSURL {
         
         if filename.isEmpty {
@@ -35,7 +35,7 @@ extension NSURL {
         let baselineURL = path.stringByDeletingPathExtension
         
         
-        let URLString = "\(baselineURL)\(filename)\(fileExtension)"
+        let URLString = "\(baselineURL)/\(filename).\(fileExtension)"
         
         guard let URL = NSURL(string: URLString) else {
             return self

@@ -15,7 +15,7 @@ We'll use Wistia's wonderful Data API as our bluprint.
 */
 
 public protocol WistiaCollectionItem: CustomStringConvertible {
-    typealias T
+    associatedtype T
     var children: [T] { get }
 }
 

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320BB4CE1CA4945700DFFA7C /* AssetURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320BB4CD1CA4945700DFFA7C /* AssetURLs.swift */; };
 		3234D5581C8A9EEC0007C083 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234D5571C8A9EEC0007C083 /* DataSource.swift */; };
 		3234D55A1C8AA6440007C083 /* MediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234D5591C8AA6440007C083 /* MediaTests.swift */; };
 		3234D55C1C8AA64D0007C083 /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234D55B1C8AA64D0007C083 /* AssetTests.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		320BB4CD1CA4945700DFFA7C /* AssetURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetURLs.swift; sourceTree = "<group>"; };
 		3234D5571C8A9EEC0007C083 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		3234D5591C8AA6440007C083 /* MediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTests.swift; sourceTree = "<group>"; };
 		3234D55B1C8AA64D0007C083 /* AssetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				32BA95AB1C87DC7C00FC46BB /* Router.swift */,
 				32BA961C1C88E29800FC46BB /* Request.swift */,
 				3234D5571C8A9EEC0007C083 /* DataSource.swift */,
+				320BB4CD1CA4945700DFFA7C /* AssetURLs.swift */,
 				32BA95A41C87DB9C00FC46BB /* Model */,
 				32BA95AD1C87E0DA00FC46BB /* API.swift */,
 				32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */,
@@ -227,7 +230,7 @@
 				};
 			};
 			buildConfigurationList = 32BA957B1C87DAB400FC46BB /* Build configuration list for PBXProject "WistiaKit" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -276,6 +279,7 @@
 				32BA96171C87FA4800FC46BB /* Model+JSON.swift in Sources */,
 				32BA95A31C87DB8E00FC46BB /* Asset.swift in Sources */,
 				3234D5581C8A9EEC0007C083 /* DataSource.swift in Sources */,
+				320BB4CE1CA4945700DFFA7C /* AssetURLs.swift in Sources */,
 				32BA95A81C87DC5800FC46BB /* DataAPI.swift in Sources */,
 				32BA95AE1C87E0DA00FC46BB /* API.swift in Sources */,
 				32BA95A11C87DB8600FC46BB /* Media.swift in Sources */,

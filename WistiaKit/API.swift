@@ -20,7 +20,7 @@ public enum HTTPMethod: String {
 /// Router Types Must Declare a Router, Typically an Enum
 protocol APIRouter {
     
-    typealias Router: APIRoute
+    associatedtype Router: APIRoute
     
 }
 

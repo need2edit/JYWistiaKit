@@ -8,34 +8,11 @@
 
 import Foundation
 
-// MARK: Project Items Parsing
-
-extension Project {
+extension Project: SupportsJSONSerialization {
     
-    
-    /**
-     
-     Intilizer with JSON.
-     
-     - returns: Project?
-     - parameter json: `[String: AnyObject]` The JSON for the project item.
-     
-     */
-    
-     /**
-     
-     Optional convenience Initializer for Media items from JSON.
-     
-     Media items will have more or less information provided depending on the requesting context. If you list Media items in a project, you wont get the assets and other info needed for playback. This intilizier works with both scenarios, treating properties that dont show up in a Project's media list response as optional.
-     
-     - returns: Project?
-     
-     Parameters:
-     - json: [String: AnyObject] the JSON as a dictionary object used to create the media item.
-     
-     */
-    public convenience init?(json: [String: AnyObject]) {
-        guard let hashedId = json["hashedId"] as? String else { return nil }
+    public convenience init?(json: JSONInfo) throws {
+        
+        guard let hashedId = json["hashedId"] as? String else { throw JSONError.InvalidValue(message: "No Hashed ID for this Project") }
         
         // TODO: Handle instances where "hashed_id" vs. "hashedId" is used in the API.
         
@@ -55,46 +32,18 @@ extension Project {
         
         // Begin Adding Values that May Not Be Present in Various Contexts like "List" vs. "Show"
         if let mediaJSON = json["medias"] as? [[String: AnyObject]] {
-            self.medias = mediaJSON.flatMap { Media(json: $0) }.sort({ (lhs, rhs) -> Bool in
+            self.medias = try mediaJSON.flatMap { try Media(json: $0) }.sort({ (lhs, rhs) -> Bool in
                 lhs.name < rhs.name
             })
         }
+        
     }
     
 }
 
-extension Thumbnail {
-
-    /**
-     
-     Optional convenience Initializer for a Thumbnail in the Media response.
-     
-     Parameters:
-     - json: [String: AnyObject] the JSON as a dictionary object used to create the thumbnail item.
-     
-     */
-    public init?(json: [String: AnyObject]) {
-        guard let URL = json["url"] as? String, width = json["width"] as? Int, height = json["height"] as? Int else { return nil }
-        self.init(URL: URL, width: width, height: height)
-    }
-
-}
-
-// MARK: Media Items Parsing
-
-extension Media {
+extension Media: SupportsJSONSerialization {
     
-    /**
-
-     Optional convenience Initializer for Media items from JSON.
-     
-     Media items will have more or less information provided depending on the requesting context. If you list Media items in a project, you wont get the assets and other info needed for playback. This intilizier works with both scenarios, treating properties that dont show up in a Project's media list response as optional.
-     
-     Parameters: 
-        - json: [String: AnyObject] the JSON as a dictionary object used to create the media item.
-    
-    */
-    public convenience init?(json: [String: AnyObject]) {
+    public convenience init?(json: JSONInfo) throws {
         
         guard let hashedId = json["hashedId"] as? String ?? json["hashed_id"] as? String else { return nil }
         
@@ -113,28 +62,46 @@ extension Media {
         
         let thumbnailJSON = json["thumbnail"] as? [String: AnyObject]
         
-        self.init(id: id, hashedId: hashedId, publicId: publicId, name: name, summary: description, updated: updated, created: created, assets: [], section: section, progress: progress, status: status, thumbnail: nil)
+        let type = json["type"] as? String ?? "UnknownType"
         
-        if let thumbnailJSON = thumbnailJSON, thumbnail = Thumbnail(json: thumbnailJSON) {
+        self.init(id: id, hashedId: hashedId, publicId: publicId, name: name.stringByRemovingHTML().stringByReplaceEncodedHTML(), summary: description.stringByRemovingHTML().stringByReplaceEncodedHTML(), updated: updated, created: created, assets: [], section: section, progress: progress, status: status, thumbnail: nil, type: type)
+        
+        if let thumbnailJSON = thumbnailJSON, thumbnail = try Thumbnail(json: thumbnailJSON) {
             self.thumbnail = thumbnail
         }
         
         // Begin Adding Values that May Not Be Present in Various Contexts like "List" vs. "Show"
+        
         if let assetJSON = json["assets"] as? [[String: AnyObject]] {
-            self.assets = assetJSON.flatMap { Asset(json: $0) }
+            self.assets = try assetJSON.flatMap { try Asset(json: $0) }
         }
         
     }
     
 }
 
-// MARK: Project Items Parsing
+extension Thumbnail: SupportsJSONSerialization {
+    
+    /**
+     
+     Optional convenience Initializer for a Thumbnail in the Media response.
+     
+     Parameters:
+     - json: [String: AnyObject] the JSON as a dictionary object used to create the thumbnail item.
+     
+     */
+    public init?(json: JSONInfo) throws {
+        guard let URL = json["url"] as? String, width = json["width"] as? Int, height = json["height"] as? Int else { throw JSONError.InvalidValue(message: "Could not create a thumbnail for with URL, width, and height") }
+        self.init(URL: URL, width: width, height: height)
+    }
+    
+}
 
-extension Asset {
+extension Asset: SupportsJSONSerialization {
     
     /// Optional Initializer from JSON
-    public init?(json: [String: AnyObject]) {
-        guard let URL = json["url"] as? String else { return nil }
+    public init?(json: JSONInfo) throws {
+        guard let URL = json["url"] as? String else { throw JSONError.InvalidValue(message: "No URL was found for this asset") }
         
         let type = json["type"] as? String ?? ""
         let contentType = json["contentType"] as? String ?? ""

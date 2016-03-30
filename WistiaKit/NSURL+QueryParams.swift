@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: URL Parameter Extension, Clever bit from Paw NSURLSession Extension
 
-protocol URLQueryParameterStringConvertible {
+public protocol URLQueryParameterStringConvertible {
     var queryParameters: String {get}
 }
 
@@ -21,7 +21,7 @@ extension Dictionary : URLQueryParameterStringConvertible {
      string will be @"day=Tuesday&month=January".
      @return The computed parameters string.
      */
-    var queryParameters: String {
+    public var queryParameters: String {
         var parts: [String] = []
         for (key, value) in self {
             let part = NSString(format: "%@=%@",
@@ -40,7 +40,7 @@ extension NSURL {
      @param parametersDictionary The query parameter dictionary to add.
      @return A new NSURL.
      */
-    func URLByAppendingQueryParameters(parametersDictionary : Dictionary<String, String>) -> NSURL {
+    public func URLByAppendingQueryParameters(parametersDictionary : Dictionary<String, String>) -> NSURL {
         let URLString : NSString = NSString(format: "%@?%@", self.absoluteString, parametersDictionary.queryParameters)
         return NSURL(string: URLString as String)!
     }

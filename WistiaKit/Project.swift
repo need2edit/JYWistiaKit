@@ -38,7 +38,7 @@ protocol WistiaProjectDataSource {
  - parameter publicId: `String` If the project is public, this field contains a string representing the ID used for referencing the project in public URLs.
 
 */
-public class Project: WistiaDataItem, WistiaCollectionItem, WistiaProjectDataSource {
+public final class Project: WistiaDataItem, WistiaCollectionItem, WistiaProjectDataSource {
     
     public var id: Int
     

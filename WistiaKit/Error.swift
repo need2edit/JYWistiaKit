@@ -29,26 +29,6 @@ public enum WistiaError: WistiaErrorType {
 
 }
 
-public enum JSONError: WistiaErrorType {
-    case InvalidValue(message: String)
-    case EmptyValue(message: String)
-    
-    public var description: String {
-        switch self {
-        case .InvalidValue(let message):
-            return message
-        case .EmptyValue(let message):
-            return message
-        }
-    }
-    
-    public var debugDescription: String {
-        return self.description
-    }
-
-    
-}
-
 public enum AssetError: WistiaErrorType {
     case InvalidURL
     case InvalidFormat

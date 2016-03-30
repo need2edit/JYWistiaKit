@@ -10,22 +10,33 @@ import Foundation
 
 /// A request for an multiple Wistia Items, such as a Projects or Medias.
 public enum WistiaCollectionRequestType: CustomStringConvertible {
+    
     case Projects
     case Medias
     
-    var URL: NSURL? {
+    func request(page: Int = 1, per_page: Int = 10, sortDirection: SortDirection = .Ascending, sortBy: SortByDescriptor = .Updated) throws -> NSMutableURLRequest? {
         
-        var URL: NSURL?
+        guard let apiKey = Wistia.API.apiKey where !apiKey.isEmpty else { throw Wistia.Error.EmptyAPIKey }
+        guard var URL = Wistia.API.baseURL else { throw Wistia.Error.InvalidBaseURL }
         
-        switch self {
-        case .Projects:
-            URL = DataAPI.Router.ListProjects.URL
-        case .Medias:
-            URL = DataAPI.Router.ListMedias.URL
-        }
+        let endpoint: Wistia.Endpoint = (self == .Projects) ? .ListProjects : .ListMedias
         
-        return URL
+        URL = URL.URLByAppendingPathComponent(endpoint.endpoint)
         
+        let URLParams = [
+            "page": "\(page)",
+            "per_page": "\(per_page)",
+            "sort_by": "\(sortBy.rawValue)",
+            "sort_direction": "\(sortDirection.rawValue)",
+            "api_password": "\(apiKey)",
+            ]
+
+        
+        URL = URL.URLByAppendingQueryParameters(URLParams)
+        
+        
+        let request = NSMutableURLRequest(URL: URL)
+        return request
     }
     
     public var description: String {
@@ -48,13 +59,31 @@ public enum WistiaItemRequestType: CustomStringConvertible {
     case Project(hashedId: String)
     case Media(hashedId: String)
     
-    var URL: NSURL? {
+    func request() throws -> NSMutableURLRequest? {
+        
+        guard let apiKey = Wistia.API.apiKey where !apiKey.isEmpty else { throw Wistia.Error.EmptyAPIKey }
+        guard var URL = Wistia.API.baseURL else { throw Wistia.Error.InvalidBaseURL }
+        
+        
         switch self {
-        case .Project(let hashedId):
-            return DataAPI.Router.ShowProject(hashed_id: hashedId).URL
-        case .Media(let hashedId):
-            return DataAPI.Router.ShowMedia(hashed_id: hashedId).URL
+            
+        case .Project(hashedId: let hashedId):
+            URL = URL.URLByAppendingPathComponent(Wistia.Endpoint.ShowProject(hashedId: hashedId).endpoint)
+        case .Media(hashedId: let hashedId):
+            URL = URL.URLByAppendingPathComponent(Wistia.Endpoint.ShowMedia(hashedId: hashedId).endpoint)
         }
+        
+        print(URL)
+        
+        let URLParams = [
+            "api_password": "\(apiKey)",
+            ]
+        
+        URL = URL.URLByAppendingQueryParameters(URLParams)
+        
+        
+        let request = NSMutableURLRequest(URL: URL)
+        return request
     }
     
     public var description: String {

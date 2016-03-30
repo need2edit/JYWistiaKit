@@ -11,6 +11,10 @@
 		3234D5581C8A9EEC0007C083 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234D5571C8A9EEC0007C083 /* DataSource.swift */; };
 		3234D55A1C8AA6440007C083 /* MediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234D5591C8AA6440007C083 /* MediaTests.swift */; };
 		3234D55C1C8AA64D0007C083 /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234D55B1C8AA64D0007C083 /* AssetTests.swift */; };
+		32AE49AE1CABB45B00EEBC1F /* APITemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AA1CABB45B00EEBC1F /* APITemplate.swift */; };
+		32AE49AF1CABB45B00EEBC1F /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AB1CABB45B00EEBC1F /* JSON.swift */; };
+		32AE49B01CABB45B00EEBC1F /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */; };
+		32AE49B11CABB45B00EEBC1F /* String+Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */; };
 		32BA95851C87DAB400FC46BB /* WistiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 32BA95841C87DAB400FC46BB /* WistiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32BA958C1C87DAB400FC46BB /* WistiaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32BA95811C87DAB400FC46BB /* WistiaKit.framework */; };
 		32BA95911C87DAB400FC46BB /* WistiaKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95901C87DAB400FC46BB /* WistiaKitTests.swift */; };
@@ -19,7 +23,6 @@
 		32BA95A11C87DB8600FC46BB /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A01C87DB8600FC46BB /* Media.swift */; };
 		32BA95A31C87DB8E00FC46BB /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A21C87DB8E00FC46BB /* Asset.swift */; };
 		32BA95A61C87DBA900FC46BB /* WistiaKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A51C87DBA900FC46BB /* WistiaKit.swift */; };
-		32BA95A81C87DC5800FC46BB /* DataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A71C87DC5800FC46BB /* DataAPI.swift */; };
 		32BA95AA1C87DC6100FC46BB /* StatsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A91C87DC6100FC46BB /* StatsAPI.swift */; };
 		32BA95AC1C87DC7C00FC46BB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95AB1C87DC7C00FC46BB /* Router.swift */; };
 		32BA95AE1C87E0DA00FC46BB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95AD1C87E0DA00FC46BB /* API.swift */; };
@@ -44,6 +47,10 @@
 		3234D5571C8A9EEC0007C083 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		3234D5591C8AA6440007C083 /* MediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTests.swift; sourceTree = "<group>"; };
 		3234D55B1C8AA64D0007C083 /* AssetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
+		32AE49AA1CABB45B00EEBC1F /* APITemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITemplate.swift; sourceTree = "<group>"; };
+		32AE49AB1CABB45B00EEBC1F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
+		32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Courses.swift"; sourceTree = "<group>"; };
 		32BA95811C87DAB400FC46BB /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BA95841C87DAB400FC46BB /* WistiaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WistiaKit.h; sourceTree = "<group>"; };
 		32BA95861C87DAB400FC46BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,7 +62,6 @@
 		32BA95A01C87DB8600FC46BB /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		32BA95A21C87DB8E00FC46BB /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		32BA95A51C87DBA900FC46BB /* WistiaKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WistiaKit.swift; sourceTree = "<group>"; };
-		32BA95A71C87DC5800FC46BB /* DataAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAPI.swift; sourceTree = "<group>"; };
 		32BA95A91C87DC6100FC46BB /* StatsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsAPI.swift; sourceTree = "<group>"; };
 		32BA95AB1C87DC7C00FC46BB /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		32BA95AD1C87E0DA00FC46BB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -88,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				32BA95A91C87DC6100FC46BB /* StatsAPI.swift */,
-				32BA95A71C87DC5800FC46BB /* DataAPI.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -153,6 +158,10 @@
 		32BA95A41C87DB9C00FC46BB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				32AE49AA1CABB45B00EEBC1F /* APITemplate.swift */,
+				32AE49AB1CABB45B00EEBC1F /* JSON.swift */,
+				32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */,
+				32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */,
 				32BA959E1C87DB7F00FC46BB /* Project.swift */,
 				32BA95A01C87DB8600FC46BB /* Media.swift */,
 				32BA95A21C87DB8E00FC46BB /* Asset.swift */,
@@ -272,17 +281,20 @@
 				32BA95AC1C87DC7C00FC46BB /* Router.swift in Sources */,
 				32BA961D1C88E29800FC46BB /* Request.swift in Sources */,
 				32BA959D1C87DB7400FC46BB /* Error.swift in Sources */,
+				32AE49B01CABB45B00EEBC1F /* String+HTML.swift in Sources */,
 				32BA961B1C88CDEC00FC46BB /* NSURL+QueryParams.swift in Sources */,
 				32BA95AA1C87DC6100FC46BB /* StatsAPI.swift in Sources */,
 				32BA95A61C87DBA900FC46BB /* WistiaKit.swift in Sources */,
+				32AE49AF1CABB45B00EEBC1F /* JSON.swift in Sources */,
+				32AE49AE1CABB45B00EEBC1F /* APITemplate.swift in Sources */,
 				32BA959F1C87DB7F00FC46BB /* Project.swift in Sources */,
 				32BA96171C87FA4800FC46BB /* Model+JSON.swift in Sources */,
 				32BA95A31C87DB8E00FC46BB /* Asset.swift in Sources */,
 				3234D5581C8A9EEC0007C083 /* DataSource.swift in Sources */,
 				320BB4CE1CA4945700DFFA7C /* AssetURLs.swift in Sources */,
-				32BA95A81C87DC5800FC46BB /* DataAPI.swift in Sources */,
 				32BA95AE1C87E0DA00FC46BB /* API.swift in Sources */,
 				32BA95A11C87DB8600FC46BB /* Media.swift in Sources */,
+				32AE49B11CABB45B00EEBC1F /* String+Courses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

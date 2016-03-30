@@ -30,160 +30,275 @@ extension WistiaDataItem {
     }
 }
 
+protocol WistiaDataSourceManager {
+    
+    /// Projects currently in Wistia
+    var projects: [Project] { get set }
+    
+    /// The Number of Wistia Projects Present
+    var numberOfProjects: Int { get }
+    
+    /// Medias currently in Wistia
+    var medias: [Media] { get set }
+    
+    /// The Number of Media Items
+    var numberOfMedias: Int { get }
+    
+}
+
+extension WistiaDataSourceManager {
+    
+    var numberOfProjects: Int {
+        return projects.count
+    }
+    
+    var numberOfMedias: Int {
+        return medias.count
+    }
+    
+}
+
+
 /// The object to encapsulate Wistia related functions and data.
-public class Wistia {
+public struct Wistia: APITemplate, WistiaDataSourceManager {
     
     public static var debugMode: Bool = false
     
-    static let sharedInstance: Wistia = Wistia()
+    // MARK: Wistia Data API
     
     /// The global API Password for singleton use
-    public static var api_password: String {
-        return sharedInstance.api_password
+    public static var API: Wistia = Wistia()
+    
+    /// Wistia's default
+    public var httpProtocol: HTTPProtocol {
+        return .HTTPS
     }
     
-    /// The global API Password for singleton use
-    public static var numberOfProjects: Int {
-        return sharedInstance.projects.count
+    /// API Password for a given instance
+    public var apiKey: String?
+    
+    /// The Base URL or Host of the API
+    public var host: String {
+        return "api.wistia.com"
     }
     
-    public static var numberOfMedias: Int {
-        return sharedInstance.medias.count
+    /// The Version of the API
+    public var version: String {
+        return "v1"
     }
     
+    
+    public enum Error: ErrorType, CustomStringConvertible {
+        
+        case InvalidAPIKey
+        case EmptyAPIKey
+        
+        case InvalidBaseURL
+        
+        case EmptyProjects
+        case EmptyMedias
+        
+        case EmptyProject
+        case EmptyMedia
+        
+        case NoData
+        
+        case RateLimitExceeded
+        
+        case InvalidRequest
+        
+        public var description: String {
+            switch self {
+            case .InvalidAPIKey:
+                return "The API password you provided is invalid."
+            case .EmptyAPIKey:
+                return "You did not provide an API password. Use Wistia.setup(apiKey:String) to get started."
+            case .InvalidBaseURL:
+                return "Could not create the base URL for the API"
+            case .RateLimitExceeded:
+                return "You've requested things over 1000 times in a minute.  Wistia's pretty fun, but you might need to calm down a bit."
+            case .InvalidRequest:
+                return "The request you're trying to make is invalid, please check your parameter formatting and try again."
+            case .EmptyMedia:
+                return "No media information was returned for the hashed id you provided."
+            case .EmptyProject:
+                return "No project information was returned for the hashed id you provided."
+            case .EmptyMedias:
+                return "No medias were found for the current request."
+            case .EmptyProjects:
+                return "No projects were "
+            case .NoData:
+                return "No data was returned for this request."
+            }
+        }
+    }
+    
+    public enum Endpoint: RouteType {
+        
+        /// List Medias
+        case ListMedias
+        
+        /// Show a Single Media Using a Hashed ID
+        case ShowMedia(hashedId: String)
+        
+        
+        /// List Projects within Wistia
+        case ListProjects
+        
+        /// Show Individual Project
+        case ShowProject(hashedId: String)
+        
+        public var method: RESTMethod {
+            switch self {
+        case .ListMedias, .ListProjects, .ShowMedia(hashedId: _), .ShowProject(hashedId: _):
+                return .GET
+            }
+        }
+        
+        public var action: String {
+            
+            switch self {
+                
+            case .ListProjects:
+                return ".json"
+            case .ListMedias:
+                return ".json"
+            case .ShowMedia(hashedId: let hashedId):
+                return "/\(hashedId).json"
+            case .ShowProject(hashedId: let hashedId):
+                return "/\(hashedId).json"
+            }
+            
+        }
+        
+        public var endpoint: String {
+            return resource + action
+        }
+        
+        public var resource: String {
+            switch self {
+            case .ListProjects, .ShowProject(hashedId: _):
+                return "projects"
+            case .ListMedias, .ShowMedia(hashedId: _):
+                return "medias"
+            }
+        }
+        
+        public var queryParameters: String {
+            return ""
+        }
+        
+    }
+    
+    
+    // MARK: Wistia Data Source
     public var projects: [Project] = []
     public var medias: [Media] = []
     
-    /// API Password for a given instance
-    private var api_password: String = ""
-}
-
-public func setup(api_password api_password: String) {
-    Wistia.sharedInstance.api_password = api_password
-}
-
-public func request(route: DataAPI.Router) {
-    
-    if Wistia.api_password.isEmpty  {
-        print("You have not set an API Password... aborting")
-        return
-    } else {
-        
-        print("Projects: \(Wistia.numberOfProjects)")
-        print("Medias: \(Wistia.numberOfMedias)")
-        
-        print(route.URL)
-    }
     
 }
 
 /// Lists Data Items from Wistia Library
+
 public func List(requestType: WistiaCollectionRequestType, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [WistiaDataItem]) -> Void) {
-    
-    let URLParams = [
-        "page": "\(page)",
-        "per_page": "\(per_page)",
-        "sort_by": "\(sortBy.rawValue)",
-        "sort_direction": "\(sortDirection.rawValue)",
-        "api_password": "\(Wistia.api_password)",
-    ]
-    
-    guard let URL = requestType.URL?.URLByAppendingQueryParameters(URLParams) else { return }
-    
-    if Wistia.debugMode {
-        print(URL)
-    }
-    
-    let task = NSURLSession.sharedSession().dataTaskWithURL(URL) { (let data, let response, let error) -> Void in
-        
-        guard let data = data else { return }
         
         do {
             
-            if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [[String: AnyObject]] {
-               
+            guard let request = try requestType.request(page, per_page: per_page, sortDirection: sortDirection, sortBy: sortBy) else { throw Wistia.Error.InvalidRequest }
+            
+            if Wistia.debugMode {
+                print(request.URL)
+            }
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (let data, let response, let error) -> Void in
                 
-                if Wistia.debugMode {
-                    print(requestType.description)
-                    print(json)
+                guard let data = data else { return }
+                
+                do {
+                    
+                    if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [[String: AnyObject]] {
+                        
+                        
+                        if Wistia.debugMode {
+                            print(requestType.description)
+                        }
+                        
+                        switch requestType {
+                        case .Projects:
+                            let items = try json.flatMap { try Project(json: $0) }
+                            completionHandler(items: items.map { $0 as WistiaDataItem })
+                        case .Medias:
+                            let items = try json.flatMap { try Media(json: $0) }
+                            completionHandler(items: items.map { $0 as WistiaDataItem })
+                        }
+                        
+                    }
+                    
+                    
+                } catch {
+                    completionHandler(items: [])
                 }
                 
-                switch requestType {
-                    case .Projects:
-                        let items = json.flatMap { Project(json: $0) }
-                        completionHandler(items: items.map { $0 as WistiaDataItem })
-                    case .Medias:
-                        let items = json.flatMap { Media(json: $0) }
-                        completionHandler(items: items.map { $0 as WistiaDataItem })
-                }
                 
             }
             
+            task.resume()
             
-        } catch {
-            completionHandler(items: [])
         }
         
-        
-    }
-    
-    task.resume()
+        catch {
+            print(error)
+        }
     
 }
 
 
 public func Show(requestType: WistiaItemRequestType, completionHandler: (item: WistiaDataItem?) -> Void) {
     
-    let URLParams = [
-        "api_password": "\(Wistia.api_password)",
-    ]
-    
-    guard let URL = requestType.URL?.URLByAppendingQueryParameters(URLParams) else { return }
-    
-    let task = NSURLSession.sharedSession().dataTaskWithURL(URL) { (let data, let response, let error) -> Void in
+    do {
+        guard let request = try requestType.request() else { throw Wistia.Error.InvalidRequest }
         
-        if Wistia.debugMode {
-            print(data)
-            print(response)
-            print(error)
-        }
-        
-        guard let data = data else { return }
-        
-        do {
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (let data, let response, let error) -> Void in
             
-            if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [String: AnyObject] {
+            do {
                 
+                guard let data = data else { throw Wistia.Error.NoData }
                 
-                // TODO: Error Handling for Attempted Initialization
-                
-                if Wistia.debugMode {
-                    print(requestType.description)
-                    print(json)
+                if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [String: AnyObject] {
+                    
+                    
+                    // TODO: Error Handling for Attempted Initialization
+                    
+                    if Wistia.debugMode {
+                        print(requestType.description)
+                    }
+                    
+                    // TODO: This could be handled by a generic / protocol with a standard initilizer
+                    switch requestType {
+                        
+                    case .Project:
+                        completionHandler(item: try Project(json: json))
+                    case .Media:
+                        completionHandler(item: try Media(json: json))
+                        
+                    }
+                    
                 }
                 
-                // TODO: This could be handled by a generic / protocol with a standard initilizer
-                switch requestType {
-                    
-                case .Project:
-                    completionHandler(item: Project(json: json))
-                case .Media:
-                    completionHandler(item: Media(json: json))
-                    
-                }
+                
+            } catch {
+                // TODO: Error Handling for No Result
+                completionHandler(item: nil)
                 
             }
             
             
-        } catch {
-            // TODO: Error Handling for No Result
-            completionHandler(item: nil)
-            
         }
         
+        task.resume()
         
+    } catch {
+        print(error)
     }
-    
-    task.resume()
     
 }

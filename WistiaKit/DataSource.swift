@@ -125,6 +125,18 @@ public class SimpleDataSource {
     
 }
 
+extension SimpleDataSource: CustomStringConvertible {
+    public var description: String {
+        
+        if let descriptionName = name {
+            return "Name: \(descriptionName)\nNumber Of Sections: \(sections.count)"
+        }
+        
+        return "No Description"
+        
+    }
+}
+
 /**
  
  `ComplexDataSource` objects are designed to compose more complex data graphs.

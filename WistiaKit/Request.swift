@@ -30,7 +30,6 @@ public enum WistiaCollectionRequestType: CustomStringConvertible {
             "sort_direction": "\(sortDirection.rawValue)",
             "api_password": "\(apiKey)",
             ]
-
         
         URL = URL.URLByAppendingQueryParameters(URLParams)
         

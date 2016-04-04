@@ -51,7 +51,7 @@ WistiaKit.setup(api_password: "024f878666115ae66834fdsfase2e3c98b27a0298aa672711
 Listing Projects looks like this:
 
 ```swift
-WistiaKit.List(.Projects) { (items) -> Void in
+Wistia.list(.Projects) { (items) -> Void in
     // Do something with your list of project here
 }
 ```
@@ -59,7 +59,7 @@ WistiaKit.List(.Projects) { (items) -> Void in
 Listing Medias looks like this:
 
 ```swift
-WistiaKit.List(.Medias) { (items) -> Void in
+Wistia.list(.Medias) { (items) -> Void in
     // Do something with your list of project here
 }
 ```
@@ -67,7 +67,7 @@ WistiaKit.List(.Medias) { (items) -> Void in
 Showing a Single Project looks like this:
 
 ```swift
-WistiaKit.Show(.Project(hashedId: "x837d1jj")) { (item) -> Void in
+Wistia.show(.Project("x837d1jj")) { (item) -> Void in
     // Do something with this project item
 }
 ```
@@ -75,7 +75,7 @@ WistiaKit.Show(.Project(hashedId: "x837d1jj")) { (item) -> Void in
 Showing a Single Media looks like this:
 
 ```swift
-WistiaKit.Show(.Media(hashedId: "x8371jj")) { (item) -> Void in
+Wistia.show(.Media("x8371jj")) { (item) -> Void in
     // Do something with this media item
 }
 ```

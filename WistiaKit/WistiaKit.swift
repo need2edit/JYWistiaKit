@@ -214,6 +214,14 @@ public struct Wistia: APITemplate, WistiaDataSourceManager {
     public var projects: [Project] = []
     public var medias: [Media] = []
     
+    public static func show(requestType: WistiaItemRequestType, completionHandler: WistiaItemResultHandler? = nil) throws {
+        try show(requestType, completionHandler: completionHandler)
+    }
+    
+    public static func list(requestType: WistiaCollectionRequestType, completionHandler: WistiaCollectionResultHandler? = nil) throws {
+        try list(requestType, completionHandler: completionHandler)
+    }
+    
     
 }
 
@@ -270,9 +278,13 @@ public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_pa
         }
     
 }
+public typealias WistiaItemResultHandler = (item: WistiaDataItem?) -> Void
+public typealias WistiaCollectionResultHandler = (items: [WistiaDataItem]) -> Void
 
+public typealias MediaItemResultHandler = (media: Media?) -> Void
+public typealias ProjectItemResultHandler = (project: Project?) -> Void
 
-public func show(requestType: WistiaItemRequestType, completionHandler: (item: WistiaDataItem?) -> Void) {
+public func show(requestType: WistiaItemRequestType, completionHandler: WistiaItemResultHandler) {
     
     do {
         guard let request = try requestType.request() else { throw Wistia.Error.InvalidRequest }

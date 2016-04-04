@@ -7,9 +7,9 @@ Written by a fan of Wistia...so this is unofficial.
 
 If you havent heard of Wistia, you're missing out [https://wistia.com].
 
-v0.1 is just in beta right now... Shooting for a release in April 2016. All of this is subject to change as I reach that milestone.
+v0.1 is just in beta right now... Shooting for a first major release in April 2016. All of this documentation is subject to change.
 
-I prefer Carthage, cocoapods support may come later, but no promises. 
+I prefer Carthage, Cocoapods is on the list. 
 
 ## High Level Goals
 

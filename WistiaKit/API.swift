@@ -24,6 +24,7 @@ protocol APIRouter {
     
 }
 
+/// API Route provide URLs and a coorisponding HTTP method
 protocol APIRoute {
     
     var method: HTTPMethod { get }

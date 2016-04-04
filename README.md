@@ -11,9 +11,16 @@ v0.1 is just in beta right now... Hope to have this all with a v1.0 sometime in 
 
 I prefer Carthage, cocoapods support may come later, but no promises. 
 
+## High Level Goals
+
+- Provide an easy way to interact with the Wistia Data API
+- Create models mapped with Wistia Data Objects
+- Error Handling for Wistia, JSON, and Media and Asset Bugs 
+
 ## Features
 
 - [x] Easy setup with an API Key
+- [x] Error Handling!
 - [x] Wistia Objects for Projects, Medias, and Assets
 - [x] Helpers for working with Wistia Asset URLs
 - [x] Written in a style consistent with the Wistia Data API

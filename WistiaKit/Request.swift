@@ -56,8 +56,11 @@ public enum WistiaCollectionRequestType: CustomStringConvertible {
 /// A request for an individual Wistia Item, such as a Project or Media.
 public enum WistiaItemRequestType: CustomStringConvertible {
     
-    case Project(hashedId: String)
-    case Media(hashedId: String)
+    /// Single Request for Project by supplying a Hashed ID
+    case Project(String)
+    
+    /// Single Request for Media by supplying a Hashed ID
+    case Media(String)
     
     func request() throws -> NSMutableURLRequest? {
         
@@ -67,9 +70,9 @@ public enum WistiaItemRequestType: CustomStringConvertible {
         
         switch self {
             
-        case .Project(hashedId: let hashedId):
+        case .Project(let hashedId):
             URL = URL.URLByAppendingPathComponent(Wistia.Endpoint.ShowProject(hashedId: hashedId).endpoint)
-        case .Media(hashedId: let hashedId):
+        case .Media(let hashedId):
             URL = URL.URLByAppendingPathComponent(Wistia.Endpoint.ShowMedia(hashedId: hashedId).endpoint)
         }
         

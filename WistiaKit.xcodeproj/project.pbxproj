@@ -15,6 +15,7 @@
 		32AE49AF1CABB45B00EEBC1F /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AB1CABB45B00EEBC1F /* JSON.swift */; };
 		32AE49B01CABB45B00EEBC1F /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */; };
 		32AE49B11CABB45B00EEBC1F /* String+Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */; };
+		32AE49B51CABB90900EEBC1F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49B41CABB90900EEBC1F /* README.md */; };
 		32BA95851C87DAB400FC46BB /* WistiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 32BA95841C87DAB400FC46BB /* WistiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32BA958C1C87DAB400FC46BB /* WistiaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32BA95811C87DAB400FC46BB /* WistiaKit.framework */; };
 		32BA95911C87DAB400FC46BB /* WistiaKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95901C87DAB400FC46BB /* WistiaKitTests.swift */; };
@@ -51,6 +52,7 @@
 		32AE49AB1CABB45B00EEBC1F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Courses.swift"; sourceTree = "<group>"; };
+		32AE49B41CABB90900EEBC1F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		32BA95811C87DAB400FC46BB /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BA95841C87DAB400FC46BB /* WistiaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WistiaKit.h; sourceTree = "<group>"; };
 		32BA95861C87DAB400FC46BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		32BA95771C87DAB400FC46BB = {
 			isa = PBXGroup;
 			children = (
+				32AE49B41CABB90900EEBC1F /* README.md */,
 				32BA95831C87DAB400FC46BB /* WistiaKit */,
 				32BA958F1C87DAB400FC46BB /* WistiaKitTests */,
 				32BA95821C87DAB400FC46BB /* Products */,
@@ -284,6 +287,7 @@
 				32AE49B01CABB45B00EEBC1F /* String+HTML.swift in Sources */,
 				32BA961B1C88CDEC00FC46BB /* NSURL+QueryParams.swift in Sources */,
 				32BA95AA1C87DC6100FC46BB /* StatsAPI.swift in Sources */,
+				32AE49B51CABB90900EEBC1F /* README.md in Sources */,
 				32BA95A61C87DBA900FC46BB /* WistiaKit.swift in Sources */,
 				32AE49AF1CABB45B00EEBC1F /* JSON.swift in Sources */,
 				32AE49AE1CABB45B00EEBC1F /* APITemplate.swift in Sources */,

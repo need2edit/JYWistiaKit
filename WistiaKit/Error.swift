@@ -10,25 +10,6 @@ import Foundation
 
 public protocol WistiaErrorType: CustomDebugStringConvertible, CustomStringConvertible {}
 
-public enum WistiaError: WistiaErrorType {
-    case RateLimitExceeded
-    
-    public var description: String {
-        switch self {
-        case .RateLimitExceeded:
-            return "You've exceeded the rate limit for the Wistia API. Wait a full minute before trying again."
-        }
-    }
-    
-    public var debugDescription: String {
-        switch self {
-        case .RateLimitExceeded:
-            return self.description + " You also might need to calm down with the refresh button."
-        }
-    }
-
-}
-
 public enum AssetError: WistiaErrorType {
     case InvalidURL
     case InvalidFormat

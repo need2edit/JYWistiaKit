@@ -19,7 +19,7 @@ public protocol WistiaCollectionItem: CustomStringConvertible {
     var children: [T] { get }
 }
 
-/// A generic item from the Wistia object graph. These are usually Projects or Medias.
+/// A generic item from the Wistia object graph. These are usually Projects or Medias.  Wistia Data Items items have a unique Hashed Id 
 public protocol WistiaDataItem: CustomStringConvertible {
     var hashedId: String { get set }
 }
@@ -62,7 +62,27 @@ extension WistiaDataSourceManager {
 /// The object to encapsulate Wistia related functions and data.
 public struct Wistia: APITemplate, WistiaDataSourceManager {
     
-    public static var debugMode: Bool = false
+    /**
+     
+     The Debugger for Wistia Kit is designed to help you learn what is going on within Wistia Kit.  There are three different levels:
+     - `None`: Does not print anything to the console.
+     - `Some`: Prints out essential tasks. Specifically each route that is requested and sucess or errors.
+     - `Annoying`: Prints out everything.  This means the NSURL networking requests and responses, each endpoint getting called, the JSON coming back, along with success and error aknowledgements.
+     
+     */
+    public enum DebuggingLevel: Int {
+        
+        /// Silences any logging to the console.
+        case None = 0
+        
+        /// Prints our general tasks as they occur.
+        case Some = 1
+        
+        /// Prints out all networking, parsing, errors, and general tasks.
+        case Annoying = 3
+    }
+    
+    public static var debugMode: DebuggingLevel = .None
     
     // MARK: Wistia Data API
     
@@ -190,7 +210,6 @@ public struct Wistia: APITemplate, WistiaDataSourceManager {
         
     }
     
-    
     // MARK: Wistia Data Source
     public var projects: [Project] = []
     public var medias: [Media] = []
@@ -200,13 +219,13 @@ public struct Wistia: APITemplate, WistiaDataSourceManager {
 
 /// Lists Data Items from Wistia Library
 
-public func List(requestType: WistiaCollectionRequestType, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [WistiaDataItem]) -> Void) {
+public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [WistiaDataItem]) -> Void) {
         
         do {
             
             guard let request = try requestType.request(page, per_page: per_page, sortDirection: sortDirection, sortBy: sortBy) else { throw Wistia.Error.InvalidRequest }
             
-            if Wistia.debugMode {
+            if Wistia.debugMode == .Some {
                 print(request.URL)
             }
             
@@ -219,7 +238,7 @@ public func List(requestType: WistiaCollectionRequestType, page: Int = 0, per_pa
                     if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [[String: AnyObject]] {
                         
                         
-                        if Wistia.debugMode {
+                        if Wistia.debugMode == .Some {
                             print(requestType.description)
                         }
                         
@@ -253,7 +272,7 @@ public func List(requestType: WistiaCollectionRequestType, page: Int = 0, per_pa
 }
 
 
-public func Show(requestType: WistiaItemRequestType, completionHandler: (item: WistiaDataItem?) -> Void) {
+public func show(requestType: WistiaItemRequestType, completionHandler: (item: WistiaDataItem?) -> Void) {
     
     do {
         guard let request = try requestType.request() else { throw Wistia.Error.InvalidRequest }
@@ -269,7 +288,7 @@ public func Show(requestType: WistiaItemRequestType, completionHandler: (item: W
                     
                     // TODO: Error Handling for Attempted Initialization
                     
-                    if Wistia.debugMode {
+                    if Wistia.debugMode == .Some {
                         print(requestType.description)
                     }
                     

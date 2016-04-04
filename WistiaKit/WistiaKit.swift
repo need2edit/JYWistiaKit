@@ -132,7 +132,7 @@ public struct Wistia: APITemplate, WistiaDataSourceManager {
             case .InvalidAPIKey:
                 return "The API password you provided is invalid."
             case .EmptyAPIKey:
-                return "You did not provide an API password. Use Wistia.setup(apiKey:String) to get started."
+                return "You did not provide an API password. Use Wistia.setup(\"your-api-password\") to get started."
             case .InvalidBaseURL:
                 return "Could not create the base URL for the API"
             case .RateLimitExceeded:

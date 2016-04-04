@@ -42,8 +42,8 @@ For general style and development, please visit https://wistia.com/doc/data-api
 To communicate with the Wistia backend you'll need and API token.
 
 ```swift
-// Setup your Wistia account
-WistiaKit.setup(api_password: "024f878666115ae66834fdsfase2e3c98b27a0298aa672711310614735")
+// Setup your Wistia account with an API Key
+Wistia.setup("024f878666115ae66834fdsfase2e3c98b27a0298aa672711310614735")
 ```
 
 ## Usage

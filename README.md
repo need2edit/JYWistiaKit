@@ -3,11 +3,11 @@
  
 A Swift framework for working with Wistia. 
 
-Written by a big Wistia fan...so this is unofficial.
+Written by a fan of Wistia...so this is unofficial.
 
 If you havent heard of Wistia, you're missing out [https://wistia.com].
 
-v0.1 is just in beta right now... Hope to have this all with a v1.0 sometime in March 2016. All of this is subject to change as I reach that milestone.
+v0.1 is just in beta right now... Shooting for a release in April 2016. All of this is subject to change as I reach that milestone.
 
 I prefer Carthage, cocoapods support may come later, but no promises. 
 
@@ -23,13 +23,14 @@ I prefer Carthage, cocoapods support may come later, but no promises.
 - [x] Error Handling!
 - [x] Wistia Objects for Projects, Medias, and Assets
 - [x] Helpers for working with Wistia Asset URLs
-- [x] Written in a style consistent with the Wistia Data API
+- [x] Written in a friendly familiar style consistent with the Wistia Data API
 
 ## Upcoming Features
 
 - Error Handling consistent with the API documentation
 - Video Playback with AVKit
 - Video Playback with UIWebView supporting Wistia Analytics
+- Demo UI Projects
 
 ## Resources
 
@@ -52,7 +53,7 @@ Listing Projects looks like this:
 
 ```swift
 Wistia.list(.Projects) { (items) -> Void in
-    // Do something with your list of project here
+    // Do something with your list of projects here
 }
 ```
 
@@ -60,7 +61,7 @@ Listing Medias looks like this:
 
 ```swift
 Wistia.list(.Medias) { (items) -> Void in
-    // Do something with your list of project here
+    // Do something with your list of medias here
 }
 ```
 

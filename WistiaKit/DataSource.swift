@@ -8,6 +8,16 @@
 
 import Foundation
 
+#if os(iOS)
+    import UIKit
+#elseif os(watchOS)
+    import UIKit
+#elseif os(tvOS)
+    import UIKit
+#elseif os(OSX)
+    import Cocoa
+#endif
+
 /**
  
 Section structs help capture the behavior of Wistia Project items and simple data tasks like working with Tables and Grids. 

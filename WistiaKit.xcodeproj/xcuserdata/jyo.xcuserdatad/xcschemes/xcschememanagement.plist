@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>WistiaKit.xcscheme_^#shared#^_</key>
+		<key>WistiaKit-iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>WistiaKit-tvOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -18,6 +23,31 @@
 			<true/>
 		</dict>
 		<key>32BA958A1C87DAB400FC46BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32FE59A61CC188FD0066B342</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32FE59AF1CC188FD0066B342</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32FE59C21CC18A7C0066B342</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32FE59CB1CC18A7D0066B342</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32FE59DE1CC18AA60066B342</key>
 		<dict>
 			<key>primary</key>
 			<true/>

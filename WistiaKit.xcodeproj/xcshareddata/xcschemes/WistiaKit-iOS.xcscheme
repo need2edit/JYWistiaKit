@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "32BA95801C87DAB400FC46BB"
                BuildableName = "WistiaKit.framework"
-               BlueprintName = "WistiaKit"
+               BlueprintName = "WistiaKit-iOS"
                ReferencedContainer = "container:WistiaKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "32BA95801C87DAB400FC46BB"
             BuildableName = "WistiaKit.framework"
-            BlueprintName = "WistiaKit"
+            BlueprintName = "WistiaKit-iOS"
             ReferencedContainer = "container:WistiaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,7 +66,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "32BA95801C87DAB400FC46BB"
             BuildableName = "WistiaKit.framework"
-            BlueprintName = "WistiaKit"
+            BlueprintName = "WistiaKit-iOS"
             ReferencedContainer = "container:WistiaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,7 +84,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "32BA95801C87DAB400FC46BB"
             BuildableName = "WistiaKit.framework"
-            BlueprintName = "WistiaKit"
+            BlueprintName = "WistiaKit-iOS"
             ReferencedContainer = "container:WistiaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

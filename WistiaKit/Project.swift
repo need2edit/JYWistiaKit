@@ -8,6 +8,16 @@
 
 import Foundation
 
+#if os(iOS)
+    import UIKit
+#elseif os(tvOS)
+    import UIKit
+#elseif os(watchOS)
+    import UIKit
+#elseif os(OSX)
+    import Cocoa
+#endif
+
 protocol WistiaProjectDataSource {
     
     var sections: [String] { get }

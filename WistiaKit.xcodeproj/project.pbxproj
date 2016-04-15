@@ -49,6 +49,25 @@
 		32FE59F81CC18C8A0066B342 /* Model+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA96161C87FA4800FC46BB /* Model+JSON.swift */; };
 		32FE59F91CC18C8A0066B342 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95AD1C87E0DA00FC46BB /* API.swift */; };
 		32FE59FA1CC18C8A0066B342 /* NSURL+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */; };
+		32FE5A4F1CC199720066B342 /* WistiaKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A51C87DBA900FC46BB /* WistiaKit.swift */; };
+		32FE5A501CC199720066B342 /* StatsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A91C87DC6100FC46BB /* StatsAPI.swift */; };
+		32FE5A511CC199720066B342 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA959C1C87DB7400FC46BB /* Error.swift */; };
+		32FE5A521CC199720066B342 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95AB1C87DC7C00FC46BB /* Router.swift */; };
+		32FE5A531CC199720066B342 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA961C1C88E29800FC46BB /* Request.swift */; };
+		32FE5A541CC199720066B342 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234D5571C8A9EEC0007C083 /* DataSource.swift */; };
+		32FE5A551CC199720066B342 /* AssetURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320BB4CD1CA4945700DFFA7C /* AssetURLs.swift */; };
+		32FE5A561CC199720066B342 /* APITemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AA1CABB45B00EEBC1F /* APITemplate.swift */; };
+		32FE5A571CC199720066B342 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AB1CABB45B00EEBC1F /* JSON.swift */; };
+		32FE5A581CC199720066B342 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */; };
+		32FE5A591CC199720066B342 /* String+Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */; };
+		32FE5A5A1CC199720066B342 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA959E1C87DB7F00FC46BB /* Project.swift */; };
+		32FE5A5B1CC199720066B342 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A01C87DB8600FC46BB /* Media.swift */; };
+		32FE5A5C1CC199720066B342 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A21C87DB8E00FC46BB /* Asset.swift */; };
+		32FE5A5D1CC199720066B342 /* Model+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA96161C87FA4800FC46BB /* Model+JSON.swift */; };
+		32FE5A5E1CC199720066B342 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95AD1C87E0DA00FC46BB /* API.swift */; };
+		32FE5A5F1CC199720066B342 /* NSURL+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */; };
+		32FE5A611CC19BBA0066B342 /* Model+NSIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FE5A601CC19BBA0066B342 /* Model+NSIndexPath.swift */; };
+		32FE5A621CC19BE90066B342 /* Model+NSIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FE5A601CC19BBA0066B342 /* Model+NSIndexPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +118,8 @@
 		32FE59A71CC188FD0066B342 /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FE59B01CC188FD0066B342 /* WistiaKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WistiaKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FE5A401CC196040066B342 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "../Source/Info-tvOS.plist"; sourceTree = "<group>"; };
+		32FE5A471CC198360066B342 /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32FE5A601CC19BBA0066B342 /* Model+NSIndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Model+NSIndexPath.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +153,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		32FE5A431CC198360066B342 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -160,6 +188,7 @@
 				32BA958B1C87DAB400FC46BB /* WistiaKit Tests.xctest */,
 				32FE59A71CC188FD0066B342 /* WistiaKit.framework */,
 				32FE59B01CC188FD0066B342 /* WistiaKit tvOS Tests.xctest */,
+				32FE5A471CC198360066B342 /* WistiaKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +241,7 @@
 				32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */,
 				32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */,
 				32BA959E1C87DB7F00FC46BB /* Project.swift */,
+				32FE5A601CC19BBA0066B342 /* Model+NSIndexPath.swift */,
 				32BA95A01C87DB8600FC46BB /* Media.swift */,
 				32BA95A21C87DB8E00FC46BB /* Asset.swift */,
 				32BA96161C87FA4800FC46BB /* Model+JSON.swift */,
@@ -235,6 +265,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				32FE59E71CC18C130066B342 /* WistiaKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32FE5A441CC198360066B342 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +350,24 @@
 			productReference = 32FE59B01CC188FD0066B342 /* WistiaKit tvOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		32FE5A461CC198360066B342 /* WistiaKit watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32FE5A4C1CC198360066B342 /* Build configuration list for PBXNativeTarget "WistiaKit watchOS" */;
+			buildPhases = (
+				32FE5A421CC198360066B342 /* Sources */,
+				32FE5A431CC198360066B342 /* Frameworks */,
+				32FE5A441CC198360066B342 /* Headers */,
+				32FE5A451CC198360066B342 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WistiaKit watchOS";
+			productName = "WistiaKit watchOS";
+			productReference = 32FE5A471CC198360066B342 /* WistiaKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -335,6 +390,9 @@
 					32FE59AF1CC188FD0066B342 = {
 						CreatedOnToolsVersion = 7.3;
 					};
+					32FE5A461CC198360066B342 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 				};
 			};
 			buildConfigurationList = 32BA957B1C87DAB400FC46BB /* Build configuration list for PBXProject "WistiaKit" */;
@@ -353,6 +411,7 @@
 				32BA958A1C87DAB400FC46BB /* WistiaKit Tests */,
 				32FE59A61CC188FD0066B342 /* WistiaKit tvOS */,
 				32FE59AF1CC188FD0066B342 /* WistiaKit tvOS Tests */,
+				32FE5A461CC198360066B342 /* WistiaKit watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -386,6 +445,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		32FE5A451CC198360066B342 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -407,6 +473,7 @@
 				32BA95A31C87DB8E00FC46BB /* Asset.swift in Sources */,
 				3234D5581C8A9EEC0007C083 /* DataSource.swift in Sources */,
 				320BB4CE1CA4945700DFFA7C /* AssetURLs.swift in Sources */,
+				32FE5A621CC19BE90066B342 /* Model+NSIndexPath.swift in Sources */,
 				32BA95AE1C87E0DA00FC46BB /* API.swift in Sources */,
 				32BA95A11C87DB8600FC46BB /* Media.swift in Sources */,
 				32AE49B11CABB45B00EEBC1F /* String+Courses.swift in Sources */,
@@ -442,6 +509,7 @@
 				32FE59F51CC18C8A0066B342 /* Project.swift in Sources */,
 				32FE59F61CC18C8A0066B342 /* Media.swift in Sources */,
 				32FE59F71CC18C8A0066B342 /* Asset.swift in Sources */,
+				32FE5A611CC19BBA0066B342 /* Model+NSIndexPath.swift in Sources */,
 				32FE59F81CC18C8A0066B342 /* Model+JSON.swift in Sources */,
 				32FE59F91CC18C8A0066B342 /* API.swift in Sources */,
 				32FE59FA1CC18C8A0066B342 /* NSURL+QueryParams.swift in Sources */,
@@ -452,6 +520,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32FE5A421CC198360066B342 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32FE5A4F1CC199720066B342 /* WistiaKit.swift in Sources */,
+				32FE5A501CC199720066B342 /* StatsAPI.swift in Sources */,
+				32FE5A511CC199720066B342 /* Error.swift in Sources */,
+				32FE5A521CC199720066B342 /* Router.swift in Sources */,
+				32FE5A531CC199720066B342 /* Request.swift in Sources */,
+				32FE5A541CC199720066B342 /* DataSource.swift in Sources */,
+				32FE5A551CC199720066B342 /* AssetURLs.swift in Sources */,
+				32FE5A561CC199720066B342 /* APITemplate.swift in Sources */,
+				32FE5A571CC199720066B342 /* JSON.swift in Sources */,
+				32FE5A581CC199720066B342 /* String+HTML.swift in Sources */,
+				32FE5A591CC199720066B342 /* String+Courses.swift in Sources */,
+				32FE5A5A1CC199720066B342 /* Project.swift in Sources */,
+				32FE5A5B1CC199720066B342 /* Media.swift in Sources */,
+				32FE5A5C1CC199720066B342 /* Asset.swift in Sources */,
+				32FE5A5D1CC199720066B342 /* Model+JSON.swift in Sources */,
+				32FE5A5E1CC199720066B342 /* API.swift in Sources */,
+				32FE5A5F1CC199720066B342 /* NSURL+QueryParams.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,7 +722,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = WistiaKit/Info.plist;
+				INFOPLIST_FILE = "Source/Info-tvOS.plist";
 				INFOPLIST_OUTPUT_FORMAT = binary;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -653,7 +745,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = WistiaKit/Info.plist;
+				INFOPLIST_FILE = "Source/Info-tvOS.plist";
 				INFOPLIST_OUTPUT_FORMAT = binary;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -690,6 +782,48 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		32FE5A4D1CC198360066B342 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.WistiaKit;
+				PRODUCT_NAME = WistiaKit;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		32FE5A4E1CC198360066B342 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.WistiaKit;
+				PRODUCT_NAME = WistiaKit;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
@@ -740,6 +874,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		32FE5A4C1CC198360066B342 /* Build configuration list for PBXNativeTarget "WistiaKit watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32FE5A4D1CC198360066B342 /* Debug */,
+				32FE5A4E1CC198360066B342 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

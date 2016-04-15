@@ -91,10 +91,6 @@ public class SimpleDataSource {
         return sections[section].title
     }
     
-    public func itemAtIndexPath(indexPath: NSIndexPath) -> Media? {
-        return sections[indexPath.section].medias[indexPath.row]
-    }
-    
     public func itemsForSection(sectionTitle: String?) -> [Media] {
         return items.filter { $0.section == sectionTitle }
     }

@@ -18,17 +18,6 @@ import Foundation
     import Cocoa
 #endif
 
-protocol WistiaProjectDataSource {
-    
-    var sections: [String] { get }
-    
-    func sectionTitleAtIndexPath(indexPath: NSIndexPath) -> String?
-    func itemsForSection(section: Int) -> [Media]?
-    func itemsForSection(sectionTitle: String) -> [Media]?
-    func itemAtIndexPath(indexPath: NSIndexPath) -> Media?
-    
-}
-
 /**
  
  **Projects** are the main organizational objects within Wistia. Media must be stored within Projects.
@@ -48,7 +37,7 @@ protocol WistiaProjectDataSource {
  - parameter publicId: `String` If the project is public, this field contains a string representing the ID used for referencing the project in public URLs.
 
 */
-public final class Project: WistiaDataItem, WistiaCollectionItem, WistiaProjectDataSource {
+public final class Project: WistiaDataItem, WistiaCollectionItem {
     
     public var id: Int
     
@@ -84,24 +73,7 @@ public final class Project: WistiaDataItem, WistiaCollectionItem, WistiaProjectD
         
     }
     
-    public func sectionTitleAtIndexPath(indexPath: NSIndexPath) -> String? {
-        return sections[indexPath.section]
-    }
     
-    public func itemsForSection(sectionTitle: String) -> [Media]? {
-        return medias?.filter( { $0.section == sectionTitle })
-    }
-    
-    public func itemsForSection(section: Int) -> [Media]? {
-        let sectionTitle = sections[section]
-        return itemsForSection(sectionTitle)
-    }
-    
-    public func itemAtIndexPath(indexPath: NSIndexPath) -> Media? {
-        
-        return itemsForSection(indexPath.section)?[indexPath.row]
-        
-    }
     
     
     public typealias T = Media

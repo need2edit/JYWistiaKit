@@ -4,4 +4,7 @@
    <FileRef
       location = "container:WistiaKit.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:iOS Example/iOS Example.xcodeproj">
+   </FileRef>
 </Workspace>

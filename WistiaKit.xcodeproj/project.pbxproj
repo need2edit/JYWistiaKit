@@ -119,7 +119,7 @@
 		32FE59B01CC188FD0066B342 /* WistiaKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WistiaKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FE5A401CC196040066B342 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "../Source/Info-tvOS.plist"; sourceTree = "<group>"; };
 		32FE5A471CC198360066B342 /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32FE5A601CC19BBA0066B342 /* Model+NSIndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Model+NSIndexPath.swift"; sourceTree = SOURCE_ROOT; };
+		32FE5A601CC19BBA0066B342 /* Model+NSIndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Model+NSIndexPath.swift"; path = "Source/Model+NSIndexPath.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

@@ -88,36 +88,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		320BB4CD1CA4945700DFFA7C /* AssetURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssetURLs.swift; path = ../Source/AssetURLs.swift; sourceTree = "<group>"; };
-		3234D5571C8A9EEC0007C083 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSource.swift; path = ../Source/DataSource.swift; sourceTree = "<group>"; };
+		320BB4CD1CA4945700DFFA7C /* AssetURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssetURLs.swift; path = Source/AssetURLs.swift; sourceTree = "<group>"; };
+		3234D5571C8A9EEC0007C083 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSource.swift; path = Source/DataSource.swift; sourceTree = "<group>"; };
 		3234D5591C8AA6440007C083 /* MediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTests.swift; sourceTree = "<group>"; };
 		3234D55B1C8AA64D0007C083 /* AssetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
-		32AE49AA1CABB45B00EEBC1F /* APITemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APITemplate.swift; path = ../Source/APITemplate.swift; sourceTree = "<group>"; };
-		32AE49AB1CABB45B00EEBC1F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = ../Source/JSON.swift; sourceTree = "<group>"; };
-		32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+HTML.swift"; path = "../Source/String+HTML.swift"; sourceTree = "<group>"; };
-		32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Courses.swift"; path = "../Source/String+Courses.swift"; sourceTree = "<group>"; };
+		32AE49AA1CABB45B00EEBC1F /* APITemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APITemplate.swift; path = Source/APITemplate.swift; sourceTree = "<group>"; };
+		32AE49AB1CABB45B00EEBC1F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Source/JSON.swift; sourceTree = "<group>"; };
+		32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+HTML.swift"; path = "Source/String+HTML.swift"; sourceTree = "<group>"; };
+		32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Courses.swift"; path = "Source/String+Courses.swift"; sourceTree = "<group>"; };
 		32AE49B41CABB90900EEBC1F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		32BA95811C87DAB400FC46BB /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32BA95841C87DAB400FC46BB /* WistiaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WistiaKit.h; path = ../Source/WistiaKit.h; sourceTree = "<group>"; };
-		32BA95861C87DAB400FC46BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Source/Info.plist; sourceTree = "<group>"; };
+		32BA95841C87DAB400FC46BB /* WistiaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WistiaKit.h; path = Source/WistiaKit.h; sourceTree = "<group>"; };
+		32BA95861C87DAB400FC46BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		32BA958B1C87DAB400FC46BB /* WistiaKit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WistiaKit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BA95901C87DAB400FC46BB /* WistiaKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WistiaKitTests.swift; sourceTree = "<group>"; };
 		32BA95921C87DAB400FC46BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32BA959C1C87DB7400FC46BB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = ../Source/Error.swift; sourceTree = "<group>"; };
-		32BA959E1C87DB7F00FC46BB /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = ../Source/Project.swift; sourceTree = "<group>"; };
-		32BA95A01C87DB8600FC46BB /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Media.swift; path = ../Source/Media.swift; sourceTree = "<group>"; };
-		32BA95A21C87DB8E00FC46BB /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = ../Source/Asset.swift; sourceTree = "<group>"; };
-		32BA95A51C87DBA900FC46BB /* WistiaKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WistiaKit.swift; path = ../Source/WistiaKit.swift; sourceTree = "<group>"; };
-		32BA95A91C87DC6100FC46BB /* StatsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsAPI.swift; path = ../Source/StatsAPI.swift; sourceTree = "<group>"; };
-		32BA95AB1C87DC7C00FC46BB /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = ../Source/Router.swift; sourceTree = "<group>"; };
-		32BA95AD1C87E0DA00FC46BB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = ../Source/API.swift; sourceTree = "<group>"; };
+		32BA959C1C87DB7400FC46BB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
+		32BA959E1C87DB7F00FC46BB /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Source/Project.swift; sourceTree = "<group>"; };
+		32BA95A01C87DB8600FC46BB /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Media.swift; path = Source/Media.swift; sourceTree = "<group>"; };
+		32BA95A21C87DB8E00FC46BB /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = Source/Asset.swift; sourceTree = "<group>"; };
+		32BA95A51C87DBA900FC46BB /* WistiaKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WistiaKit.swift; path = Source/WistiaKit.swift; sourceTree = "<group>"; };
+		32BA95A91C87DC6100FC46BB /* StatsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsAPI.swift; path = Source/StatsAPI.swift; sourceTree = "<group>"; };
+		32BA95AB1C87DC7C00FC46BB /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Source/Router.swift; sourceTree = "<group>"; };
+		32BA95AD1C87E0DA00FC46BB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Source/API.swift; sourceTree = "<group>"; };
 		32BA96121C87E8AC00FC46BB /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
-		32BA96161C87FA4800FC46BB /* Model+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Model+JSON.swift"; path = "../Source/Model+JSON.swift"; sourceTree = "<group>"; };
-		32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSURL+QueryParams.swift"; path = "../Source/NSURL+QueryParams.swift"; sourceTree = "<group>"; };
-		32BA961C1C88E29800FC46BB /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = ../Source/Request.swift; sourceTree = "<group>"; };
+		32BA96161C87FA4800FC46BB /* Model+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Model+JSON.swift"; path = "Source/Model+JSON.swift"; sourceTree = "<group>"; };
+		32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSURL+QueryParams.swift"; path = "Source/NSURL+QueryParams.swift"; sourceTree = "<group>"; };
+		32BA961C1C88E29800FC46BB /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		32FE59A71CC188FD0066B342 /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FE59B01CC188FD0066B342 /* WistiaKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WistiaKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		32FE5A401CC196040066B342 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "../Source/Info-tvOS.plist"; sourceTree = "<group>"; };
+		32FE5A401CC196040066B342 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = "Info-tvOS.plist"; path = "Source/Info-tvOS.plist"; sourceTree = "<group>"; };
 		32FE5A471CC198360066B342 /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FE5A601CC19BBA0066B342 /* Model+NSIndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Model+NSIndexPath.swift"; path = "Source/Model+NSIndexPath.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -175,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				32AE49B41CABB90900EEBC1F /* README.md */,
-				32BA95831C87DAB400FC46BB /* WistiaKit */,
+				32BA95831C87DAB400FC46BB /* Source */,
 				32BA958F1C87DAB400FC46BB /* WistiaKitTests */,
 				32BA95821C87DAB400FC46BB /* Products */,
 			);
@@ -193,7 +193,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		32BA95831C87DAB400FC46BB /* WistiaKit */ = {
+		32BA95831C87DAB400FC46BB /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				32BA95A51C87DBA900FC46BB /* WistiaKit.swift */,
@@ -202,6 +202,7 @@
 				32BA95861C87DAB400FC46BB /* Info.plist */,
 				32FE5A401CC196040066B342 /* Info-tvOS.plist */,
 			);
+			name = Source;
 			path = WistiaKit;
 			sourceTree = "<group>";
 		};
@@ -882,6 +883,7 @@
 				32FE5A4E1CC198360066B342 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

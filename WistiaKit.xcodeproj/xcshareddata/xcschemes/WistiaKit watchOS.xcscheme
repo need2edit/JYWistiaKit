@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "32FE5A461CC198360066B342"
-               BuildableName = "WistiaKit watchOS.framework"
+               BuildableName = "WistiaKit.framework"
                BlueprintName = "WistiaKit watchOS"
                ReferencedContainer = "container:WistiaKit.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "32FE5A461CC198360066B342"
-            BuildableName = "WistiaKit watchOS.framework"
+            BuildableName = "WistiaKit.framework"
             BlueprintName = "WistiaKit watchOS"
             ReferencedContainer = "container:WistiaKit.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "32FE5A461CC198360066B342"
-            BuildableName = "WistiaKit watchOS.framework"
+            BuildableName = "WistiaKit.framework"
             BlueprintName = "WistiaKit watchOS"
             ReferencedContainer = "container:WistiaKit.xcodeproj">
          </BuildableReference>

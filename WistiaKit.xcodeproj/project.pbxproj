@@ -573,7 +573,7 @@
 				INFOPLIST_FILE = WistiaKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jy.WistiaKit;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jy.WistiaKit-iOS";
 				PRODUCT_NAME = WistiaKit;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -591,7 +591,7 @@
 				INFOPLIST_FILE = WistiaKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jy.WistiaKit;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jy.WistiaKit-iOS";
 				PRODUCT_NAME = WistiaKit;
 				SKIP_INSTALL = YES;
 			};
@@ -628,7 +628,7 @@
 				INFOPLIST_FILE = WistiaKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nous.WistiaKit-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jy.WistiaKit-tvOS";
 				PRODUCT_NAME = WistiaKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -648,7 +648,7 @@
 				INFOPLIST_FILE = WistiaKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nous.WistiaKit-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jy.WistiaKit-tvOS";
 				PRODUCT_NAME = WistiaKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -720,6 +720,7 @@
 				32FE59B91CC188FD0066B342 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		32FE59BD1CC188FD0066B342 /* Build configuration list for PBXNativeTarget "WistiaKit-tvOSTests" */ = {
 			isa = XCConfigurationList;
@@ -728,6 +729,7 @@
 				32FE59BB1CC188FD0066B342 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

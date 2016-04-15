@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "32FE59A61CC188FD0066B342"
                BuildableName = "WistiaKit.framework"
-               BlueprintName = "WistiaKit-tvOS"
+               BlueprintName = "WistiaKit tvOS"
                ReferencedContainer = "container:WistiaKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "32FE59AF1CC188FD0066B342"
-               BuildableName = "WistiaKit-tvOSTests.xctest"
-               BlueprintName = "WistiaKit-tvOSTests"
+               BuildableName = "WistiaKit tvOS Tests.xctest"
+               BlueprintName = "WistiaKit tvOS Tests"
                ReferencedContainer = "container:WistiaKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "32FE59A61CC188FD0066B342"
             BuildableName = "WistiaKit.framework"
-            BlueprintName = "WistiaKit-tvOS"
+            BlueprintName = "WistiaKit tvOS"
             ReferencedContainer = "container:WistiaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,7 +66,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "32FE59A61CC188FD0066B342"
             BuildableName = "WistiaKit.framework"
-            BlueprintName = "WistiaKit-tvOS"
+            BlueprintName = "WistiaKit tvOS"
             ReferencedContainer = "container:WistiaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,7 +84,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "32FE59A61CC188FD0066B342"
             BuildableName = "WistiaKit.framework"
-            BlueprintName = "WistiaKit-tvOS"
+            BlueprintName = "WistiaKit tvOS"
             ReferencedContainer = "container:WistiaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

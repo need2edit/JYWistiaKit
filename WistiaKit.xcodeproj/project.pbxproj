@@ -69,35 +69,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		320BB4CD1CA4945700DFFA7C /* AssetURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetURLs.swift; sourceTree = "<group>"; };
-		3234D5571C8A9EEC0007C083 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		320BB4CD1CA4945700DFFA7C /* AssetURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssetURLs.swift; path = ../Source/AssetURLs.swift; sourceTree = "<group>"; };
+		3234D5571C8A9EEC0007C083 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSource.swift; path = ../Source/DataSource.swift; sourceTree = "<group>"; };
 		3234D5591C8AA6440007C083 /* MediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTests.swift; sourceTree = "<group>"; };
 		3234D55B1C8AA64D0007C083 /* AssetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
-		32AE49AA1CABB45B00EEBC1F /* APITemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITemplate.swift; sourceTree = "<group>"; };
-		32AE49AB1CABB45B00EEBC1F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
-		32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Courses.swift"; sourceTree = "<group>"; };
+		32AE49AA1CABB45B00EEBC1F /* APITemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APITemplate.swift; path = ../Source/APITemplate.swift; sourceTree = "<group>"; };
+		32AE49AB1CABB45B00EEBC1F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = ../Source/JSON.swift; sourceTree = "<group>"; };
+		32AE49AC1CABB45B00EEBC1F /* String+HTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+HTML.swift"; path = "../Source/String+HTML.swift"; sourceTree = "<group>"; };
+		32AE49AD1CABB45B00EEBC1F /* String+Courses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Courses.swift"; path = "../Source/String+Courses.swift"; sourceTree = "<group>"; };
 		32AE49B41CABB90900EEBC1F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		32BA95811C87DAB400FC46BB /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32BA95841C87DAB400FC46BB /* WistiaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WistiaKit.h; sourceTree = "<group>"; };
-		32BA95861C87DAB400FC46BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32BA958B1C87DAB400FC46BB /* WistiaKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WistiaKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32BA95841C87DAB400FC46BB /* WistiaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WistiaKit.h; path = ../Source/WistiaKit.h; sourceTree = "<group>"; };
+		32BA95861C87DAB400FC46BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Source/Info.plist; sourceTree = "<group>"; };
+		32BA958B1C87DAB400FC46BB /* WistiaKit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WistiaKit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BA95901C87DAB400FC46BB /* WistiaKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WistiaKitTests.swift; sourceTree = "<group>"; };
 		32BA95921C87DAB400FC46BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32BA959C1C87DB7400FC46BB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		32BA959E1C87DB7F00FC46BB /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		32BA95A01C87DB8600FC46BB /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
-		32BA95A21C87DB8E00FC46BB /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
-		32BA95A51C87DBA900FC46BB /* WistiaKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WistiaKit.swift; sourceTree = "<group>"; };
-		32BA95A91C87DC6100FC46BB /* StatsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsAPI.swift; sourceTree = "<group>"; };
-		32BA95AB1C87DC7C00FC46BB /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		32BA95AD1C87E0DA00FC46BB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		32BA959C1C87DB7400FC46BB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = ../Source/Error.swift; sourceTree = "<group>"; };
+		32BA959E1C87DB7F00FC46BB /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = ../Source/Project.swift; sourceTree = "<group>"; };
+		32BA95A01C87DB8600FC46BB /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Media.swift; path = ../Source/Media.swift; sourceTree = "<group>"; };
+		32BA95A21C87DB8E00FC46BB /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = ../Source/Asset.swift; sourceTree = "<group>"; };
+		32BA95A51C87DBA900FC46BB /* WistiaKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WistiaKit.swift; path = ../Source/WistiaKit.swift; sourceTree = "<group>"; };
+		32BA95A91C87DC6100FC46BB /* StatsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsAPI.swift; path = ../Source/StatsAPI.swift; sourceTree = "<group>"; };
+		32BA95AB1C87DC7C00FC46BB /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = ../Source/Router.swift; sourceTree = "<group>"; };
+		32BA95AD1C87E0DA00FC46BB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = ../Source/API.swift; sourceTree = "<group>"; };
 		32BA96121C87E8AC00FC46BB /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
-		32BA96161C87FA4800FC46BB /* Model+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Model+JSON.swift"; sourceTree = "<group>"; };
-		32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+QueryParams.swift"; sourceTree = "<group>"; };
-		32BA961C1C88E29800FC46BB /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		32BA96161C87FA4800FC46BB /* Model+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Model+JSON.swift"; path = "../Source/Model+JSON.swift"; sourceTree = "<group>"; };
+		32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSURL+QueryParams.swift"; path = "../Source/NSURL+QueryParams.swift"; sourceTree = "<group>"; };
+		32BA961C1C88E29800FC46BB /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = ../Source/Request.swift; sourceTree = "<group>"; };
 		32FE59A71CC188FD0066B342 /* WistiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WistiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32FE59B01CC188FD0066B342 /* WistiaKit-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WistiaKit-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32FE59B01CC188FD0066B342 /* WistiaKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WistiaKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32FE5A401CC196040066B342 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "../Source/Info-tvOS.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,9 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				32BA95811C87DAB400FC46BB /* WistiaKit.framework */,
-				32BA958B1C87DAB400FC46BB /* WistiaKitTests.xctest */,
+				32BA958B1C87DAB400FC46BB /* WistiaKit Tests.xctest */,
 				32FE59A71CC188FD0066B342 /* WistiaKit.framework */,
-				32FE59B01CC188FD0066B342 /* WistiaKit-tvOSTests.xctest */,
+				32FE59B01CC188FD0066B342 /* WistiaKit tvOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +171,7 @@
 				32BA959B1C87DB6700FC46BB /* Features */,
 				32BA95841C87DAB400FC46BB /* WistiaKit.h */,
 				32BA95861C87DAB400FC46BB /* Info.plist */,
+				32FE5A401CC196040066B342 /* Info-tvOS.plist */,
 			);
 			path = WistiaKit;
 			sourceTree = "<group>";
@@ -239,9 +241,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		32BA95801C87DAB400FC46BB /* WistiaKit-iOS */ = {
+		32BA95801C87DAB400FC46BB /* WistiaKit iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 32BA95951C87DAB400FC46BB /* Build configuration list for PBXNativeTarget "WistiaKit-iOS" */;
+			buildConfigurationList = 32BA95951C87DAB400FC46BB /* Build configuration list for PBXNativeTarget "WistiaKit iOS" */;
 			buildPhases = (
 				32BA957C1C87DAB400FC46BB /* Sources */,
 				32BA957D1C87DAB400FC46BB /* Frameworks */,
@@ -252,14 +254,14 @@
 			);
 			dependencies = (
 			);
-			name = "WistiaKit-iOS";
+			name = "WistiaKit iOS";
 			productName = WistiaKit;
 			productReference = 32BA95811C87DAB400FC46BB /* WistiaKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		32BA958A1C87DAB400FC46BB /* WistiaKitTests */ = {
+		32BA958A1C87DAB400FC46BB /* WistiaKit Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 32BA95981C87DAB400FC46BB /* Build configuration list for PBXNativeTarget "WistiaKitTests" */;
+			buildConfigurationList = 32BA95981C87DAB400FC46BB /* Build configuration list for PBXNativeTarget "WistiaKit Tests" */;
 			buildPhases = (
 				32BA95871C87DAB400FC46BB /* Sources */,
 				32BA95881C87DAB400FC46BB /* Frameworks */,
@@ -270,14 +272,14 @@
 			dependencies = (
 				32BA958E1C87DAB400FC46BB /* PBXTargetDependency */,
 			);
-			name = WistiaKitTests;
+			name = "WistiaKit Tests";
 			productName = WistiaKitTests;
-			productReference = 32BA958B1C87DAB400FC46BB /* WistiaKitTests.xctest */;
+			productReference = 32BA958B1C87DAB400FC46BB /* WistiaKit Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		32FE59A61CC188FD0066B342 /* WistiaKit-tvOS */ = {
+		32FE59A61CC188FD0066B342 /* WistiaKit tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 32FE59BC1CC188FD0066B342 /* Build configuration list for PBXNativeTarget "WistiaKit-tvOS" */;
+			buildConfigurationList = 32FE59BC1CC188FD0066B342 /* Build configuration list for PBXNativeTarget "WistiaKit tvOS" */;
 			buildPhases = (
 				32FE59A21CC188FD0066B342 /* Sources */,
 				32FE59A31CC188FD0066B342 /* Frameworks */,
@@ -288,14 +290,14 @@
 			);
 			dependencies = (
 			);
-			name = "WistiaKit-tvOS";
+			name = "WistiaKit tvOS";
 			productName = "WistiaKit-tvOS";
 			productReference = 32FE59A71CC188FD0066B342 /* WistiaKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		32FE59AF1CC188FD0066B342 /* WistiaKit-tvOSTests */ = {
+		32FE59AF1CC188FD0066B342 /* WistiaKit tvOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 32FE59BD1CC188FD0066B342 /* Build configuration list for PBXNativeTarget "WistiaKit-tvOSTests" */;
+			buildConfigurationList = 32FE59BD1CC188FD0066B342 /* Build configuration list for PBXNativeTarget "WistiaKit tvOS Tests" */;
 			buildPhases = (
 				32FE59AC1CC188FD0066B342 /* Sources */,
 				32FE59AD1CC188FD0066B342 /* Frameworks */,
@@ -306,9 +308,9 @@
 			dependencies = (
 				32FE59B31CC188FD0066B342 /* PBXTargetDependency */,
 			);
-			name = "WistiaKit-tvOSTests";
+			name = "WistiaKit tvOS Tests";
 			productName = "WistiaKit-tvOSTests";
-			productReference = 32FE59B01CC188FD0066B342 /* WistiaKit-tvOSTests.xctest */;
+			productReference = 32FE59B01CC188FD0066B342 /* WistiaKit tvOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -347,10 +349,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				32BA95801C87DAB400FC46BB /* WistiaKit-iOS */,
-				32BA958A1C87DAB400FC46BB /* WistiaKitTests */,
-				32FE59A61CC188FD0066B342 /* WistiaKit-tvOS */,
-				32FE59AF1CC188FD0066B342 /* WistiaKit-tvOSTests */,
+				32BA95801C87DAB400FC46BB /* WistiaKit iOS */,
+				32BA958A1C87DAB400FC46BB /* WistiaKit Tests */,
+				32FE59A61CC188FD0066B342 /* WistiaKit tvOS */,
+				32FE59AF1CC188FD0066B342 /* WistiaKit tvOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -458,12 +460,12 @@
 /* Begin PBXTargetDependency section */
 		32BA958E1C87DAB400FC46BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 32BA95801C87DAB400FC46BB /* WistiaKit-iOS */;
+			target = 32BA95801C87DAB400FC46BB /* WistiaKit iOS */;
 			targetProxy = 32BA958D1C87DAB400FC46BB /* PBXContainerItemProxy */;
 		};
 		32FE59B31CC188FD0066B342 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 32FE59A61CC188FD0066B342 /* WistiaKit-tvOS */;
+			target = 32FE59A61CC188FD0066B342 /* WistiaKit tvOS */;
 			targetProxy = 32FE59B21CC188FD0066B342 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -565,15 +567,16 @@
 		32BA95961C87DAB400FC46BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = WistiaKit/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jy.WistiaKit-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.WistiaKit;
 				PRODUCT_NAME = WistiaKit;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -583,15 +586,16 @@
 		32BA95971C87DAB400FC46BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = WistiaKit/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jy.WistiaKit-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.WistiaKit;
 				PRODUCT_NAME = WistiaKit;
 				SKIP_INSTALL = YES;
 			};
@@ -620,15 +624,18 @@
 		32FE59B81CC188FD0066B342 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = WistiaKit/Info.plist;
+				INFOPLIST_OUTPUT_FORMAT = binary;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jy.WistiaKit-tvOS";
+				PLIST_FILE_OUTPUT_FORMAT = binary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.WistiaKit;
 				PRODUCT_NAME = WistiaKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -640,15 +647,18 @@
 		32FE59B91CC188FD0066B342 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = WistiaKit/Info.plist;
+				INFOPLIST_OUTPUT_FORMAT = binary;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jy.WistiaKit-tvOS";
+				PLIST_FILE_OUTPUT_FORMAT = binary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.WistiaKit;
 				PRODUCT_NAME = WistiaKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -695,7 +705,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		32BA95951C87DAB400FC46BB /* Build configuration list for PBXNativeTarget "WistiaKit-iOS" */ = {
+		32BA95951C87DAB400FC46BB /* Build configuration list for PBXNativeTarget "WistiaKit iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				32BA95961C87DAB400FC46BB /* Debug */,
@@ -704,7 +714,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		32BA95981C87DAB400FC46BB /* Build configuration list for PBXNativeTarget "WistiaKitTests" */ = {
+		32BA95981C87DAB400FC46BB /* Build configuration list for PBXNativeTarget "WistiaKit Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				32BA95991C87DAB400FC46BB /* Debug */,
@@ -713,7 +723,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		32FE59BC1CC188FD0066B342 /* Build configuration list for PBXNativeTarget "WistiaKit-tvOS" */ = {
+		32FE59BC1CC188FD0066B342 /* Build configuration list for PBXNativeTarget "WistiaKit tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				32FE59B81CC188FD0066B342 /* Debug */,
@@ -722,7 +732,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		32FE59BD1CC188FD0066B342 /* Build configuration list for PBXNativeTarget "WistiaKit-tvOSTests" */ = {
+		32FE59BD1CC188FD0066B342 /* Build configuration list for PBXNativeTarget "WistiaKit tvOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				32FE59BA1CC188FD0066B342 /* Debug */,

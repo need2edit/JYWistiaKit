@@ -203,7 +203,6 @@
 				32FE5A401CC196040066B342 /* Info-tvOS.plist */,
 			);
 			name = Source;
-			path = WistiaKit;
 			sourceTree = "<group>";
 		};
 		32BA958F1C87DAB400FC46BB /* WistiaKitTests */ = {

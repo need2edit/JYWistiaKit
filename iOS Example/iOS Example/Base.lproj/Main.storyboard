@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="1402" y="496"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Detail Table View Controller-->
         <scene sceneID="A8L-Z9-Haf">
             <objects>
-                <tableViewController id="YY2-uT-bno" sceneMemberID="viewController">
+                <tableViewController id="YY2-uT-bno" customClass="DetailTableViewController" customModule="iOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Nsn-KY-Wxw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

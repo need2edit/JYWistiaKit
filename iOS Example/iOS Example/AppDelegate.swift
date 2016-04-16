@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WistiaKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        WistiaKit.setup("my-wistia-api-goes-here")
+        Wistia.debugMode = .Annoying
         return true
     }
 

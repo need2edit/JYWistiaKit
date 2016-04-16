@@ -107,52 +107,6 @@ public struct Wistia: APITemplate, WistiaDataSourceManager {
         return "v1"
     }
     
-    
-    public enum Error: ErrorType, CustomStringConvertible {
-        
-        case InvalidAPIKey
-        case EmptyAPIKey
-        
-        case InvalidBaseURL
-        
-        case EmptyProjects
-        case EmptyMedias
-        
-        case EmptyProject
-        case EmptyMedia
-        
-        case NoData
-        
-        case RateLimitExceeded
-        
-        case InvalidRequest
-        
-        public var description: String {
-            switch self {
-            case .InvalidAPIKey:
-                return "The API password you provided is invalid."
-            case .EmptyAPIKey:
-                return "You did not provide an API password. Use Wistia.setup(\"your-api-password\") to get started."
-            case .InvalidBaseURL:
-                return "Could not create the base URL for the API"
-            case .RateLimitExceeded:
-                return "You've requested things over 1000 times in a minute.  Wistia's pretty fun, but you might need to calm down a bit."
-            case .InvalidRequest:
-                return "The request you're trying to make is invalid, please check your parameter formatting and try again."
-            case .EmptyMedia:
-                return "No media information was returned for the hashed id you provided."
-            case .EmptyProject:
-                return "No project information was returned for the hashed id you provided."
-            case .EmptyMedias:
-                return "No medias were found for the current request."
-            case .EmptyProjects:
-                return "No projects were "
-            case .NoData:
-                return "No data was returned for this request."
-            }
-        }
-    }
-    
     public enum Endpoint: RouteType {
         
         /// List Medias
@@ -214,32 +168,58 @@ public struct Wistia: APITemplate, WistiaDataSourceManager {
     public var projects: [Project] = []
     public var medias: [Media] = []
     
-    public static func show(requestType: WistiaItemRequestType, completionHandler: WistiaItemResultHandler? = nil) throws {
-        try show(requestType, completionHandler: completionHandler)
-    }
-    
-    public static func list(requestType: WistiaCollectionRequestType, completionHandler: WistiaCollectionResultHandler? = nil) throws {
-        try list(requestType, completionHandler: completionHandler)
-    }
-    
-    
+}
+
+public func setup(apiKey: String) {
+    Wistia.API.setup(apiKey)
 }
 
 /// Lists Data Items from Wistia Library
 
-public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: (items: [WistiaDataItem]) -> Void) {
-        
-        do {
-            
+public enum SingleItemResult<T> {
+    case Success(T)
+    case Error(ErrorType)
+}
+
+public enum CollectionResult<T> {
+    case Success([T])
+    case Error(ErrorType)
+}
+
+public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: CollectionResult<WistiaDataItem> -> Void) throws {
+    
             guard let request = try requestType.request(page, per_page: per_page, sortDirection: sortDirection, sortBy: sortBy) else { throw Wistia.Error.InvalidRequest }
             
             if Wistia.debugMode == .Some {
                 print(request.URL)
             }
+    
             
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (let data, let response, let error) -> Void in
                 
-                guard let data = data else { return }
+                guard let response = response as? NSHTTPURLResponse else {
+                    
+                    return completionHandler(.Error(Wistia.Error.NoResponse))
+                    
+                }
+                
+                if Wistia.debugMode == .Annoying {
+                    print(response)
+                }
+                
+                // TODO: Handle the Wistia Docs Here...this is repetative for now
+                
+                switch response.statusCode {
+                
+                case 401:
+                    
+                    return completionHandler(.Error(Wistia.Error.InvalidAPIKey))
+                    
+                default:
+                    break
+                }
+                
+                guard let data = data where response.statusCode == 200 else { return }
                 
                 do {
                     
@@ -251,40 +231,49 @@ public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_pa
                         }
                         
                         switch requestType {
+                            
                         case .Projects:
                             let items = try json.flatMap { try Project(json: $0) }
-                            completionHandler(items: items.map { $0 as WistiaDataItem })
+                            
+                            guard !items.isEmpty else { return completionHandler(.Error(Wistia.Error.EmptyProjects)) }
+                            
+                            completionHandler(.Success(items))
+                            
                         case .Medias:
+                            
                             let items = try json.flatMap { try Media(json: $0) }
-                            completionHandler(items: items.map { $0 as WistiaDataItem })
+                            
+                            guard !items.isEmpty else { return completionHandler(.Error(Wistia.Error.EmptyMedias)) }
+                            
+                            completionHandler(.Success(items))
+                            
                         }
                         
                     }
                     
                     
                 } catch {
-                    completionHandler(items: [])
+                    
+                    if Wistia.debugMode == .Some {
+                        print(error)
+                    }
+                    
+                    completionHandler(.Error(error))
                 }
                 
                 
             }
             
             task.resume()
-            
-        }
-        
-        catch {
-            print(error)
-        }
-    
 }
+
 public typealias WistiaItemResultHandler = (item: WistiaDataItem?) -> Void
 public typealias WistiaCollectionResultHandler = (items: [WistiaDataItem]) -> Void
 
 public typealias MediaItemResultHandler = (media: Media?) -> Void
 public typealias ProjectItemResultHandler = (project: Project?) -> Void
 
-public func show(requestType: WistiaItemRequestType, completionHandler: WistiaItemResultHandler) {
+public func show(requestType: WistiaItemRequestType, completionHandler: WistiaItemResultHandler) throws {
     
     do {
         guard let request = try requestType.request() else { throw Wistia.Error.InvalidRequest }

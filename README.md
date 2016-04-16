@@ -48,9 +48,8 @@ To communicate with the Wistia backend you'll need and API token.
 See the iOS project for a working example.
 
 ```swift
-// Setup your Wistia account with an API Key
 
-// Setup Wistia Kit with a Valid API Key
+// Setup your Wistia account with an API Key
 WistiaKit.setup("my-wistia-api-goes-here")
 
 ```

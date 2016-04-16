@@ -10,37 +10,89 @@ import UIKit
 import WistiaKit
 
 enum Section {
-    case Info(String, String)
-    case Children([WistiaDataItem])
+    case Info(rows: [Row])
+    case Children(String, items: [AnyObject]?)
+}
+
+enum Row {
+    case ValuePair(value: String?, label: String?)
+    
+    var info: (value: String?, label: String?) {
+        switch self {
+        case .ValuePair(value: let value, label: let label):
+            return (value, label)
+        }
+    }
 }
 
 class DetailTableViewController: UITableViewController {
     
-    var detailItem: WistiaDataItem?
+    var detailItem: WistiaDataItem? {
+        didSet {
+            if let detail = detailItem as? Project {
+                self.title = "Project"
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    var project: Project? { return detailItem as? Project }
+    var media: Media? { return detailItem as? Media }
+    
+    var sections: [Section]? {
+        
+        guard let project = project else { return [] }
+        
+        return [
+            .Info(rows:
+                [
+                    Row.ValuePair(value: "Title", label: project.name),
+                    Row.ValuePair(value: "Description", label: project.description)
+                ]
+            ),
+            .Children("Medias", items: project.medias)
+        ]
+        
+        
+    }
     
     var requestType: WistiaItemRequestType? {
         
         didSet {
             
-            if let request = requestType {
+            refresh()
             
-                do {
+        }
+        
+    }
+    
+    // Load the new data showing the resources.
+    func refresh() {
+        
+        if let request = requestType {
+            
+            do {
+                
+                try WistiaKit.show(request, completionHandler: { (result) in
                     
-                    try WistiaKit.show(request, completionHandler: { (result) in
+                    switch result {
+                    case .Success(let item):
                         
-                        switch result {
-                        case .Success(let item):
+                        dispatch_async(dispatch_get_main_queue(), {
                             self.detailItem = item
-                        case .Error(let error):
-                            self.handleError(error)
-                        }
-                    })
-                    
-                } catch {
-                    
-                    handleError(error)
-                    
-                }
+                        })
+                        
+                        
+                    case .Error(let error):
+                        self.handleError(error)
+                    }
+                })
+                
+            } catch {
+                
+                dispatch_async(dispatch_get_main_queue(), { 
+                    self.handleError(error)
+                })
                 
             }
             
@@ -52,46 +104,66 @@ class DetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.estimatedRowHeight = 60.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        if let project = detailItem as? Project {
-            return 2
-        }
+        return sections?.count ?? 0
         
-        if let media = detailItem as? Media {
-            return 2
-        }
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let project = detailItem as? Project {
-            return 2
+        if let currentSection = sections?[section] {
+            switch currentSection {
+            case .Info(let rows):
+                return rows.count
+            case .Children(_, items: let items):
+                return items?.count ?? 0
+            }
         }
         
-        if let media = detailItem as? Media {
-            
-            switch section {
-            case 0:
-                return 2
-            case 1:
-                return media.assets.count
-            }
-            
-            return media.assets.count
+        return 0
+        
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        guard let currentSection = sections?[section] else { return nil }
+        
+        switch currentSection {
+            case .Info:
+                return nil
+            case .Children(let header, items: _):
+                return header
         }
         
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        
+        let identifier = (indexPath.section == 0) ? "SubtitleCell" : "Cell"
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
 
-        // Configure the cell...
+        if let currentSection = sections?[indexPath.section] {
+          
+        switch currentSection {
+        case .Info(let rows):
+            let rowInfo = rows[indexPath.row]
+            cell.textLabel?.text = rowInfo.info.value
+            cell.detailTextLabel?.text = rowInfo.info.label
+        case .Children(_, items: let items):
+            guard let item = items?[indexPath.row] as? Media else { break }
+            cell.textLabel?.text = item.name
+        }
+
+        }
 
         return cell
     }

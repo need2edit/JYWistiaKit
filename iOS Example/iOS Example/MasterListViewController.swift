@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  iOS Example
@@ -9,8 +10,17 @@
 import UIKit
 import WistiaKit
 
-class MasterListViewController: UITableViewController {
+protocol DataSource {
+    associatedtype T: WistiaDataItem
+    var items: [T] { get set}
+}
 
+class MasterListViewController: UITableViewController, DataSource {
+
+    
+    typealias T = Project
+    
+    
     /*
  
      Empty state management.  
@@ -39,7 +49,7 @@ class MasterListViewController: UITableViewController {
     
     
     
-    var projects: [Project] = []
+    var items: [T] = []
     
     // MARK: - View Controller Life Cycle
     
@@ -50,6 +60,9 @@ class MasterListViewController: UITableViewController {
         refresh()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(MasterListViewController.refresh))
+        
+        tableView.estimatedRowHeight = 60.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
 }
@@ -94,8 +107,15 @@ extension MasterListViewController {
                     
                 case .Success(let items):
                     
-                    /// This could be medias or projects, so we cast the result.
-                    self.projects = items as! [Project]
+                    // Fixes an Obj-C bridging Error, this will be 
+                    // replaced with a result that informs you of the type
+                    
+                    self.items = items.map { $0 as! Project }
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.loading = false
+                        
+                    })
                     
                 case .Error(let error):
                     
@@ -166,12 +186,19 @@ extension MasterListViewController {
         
         // Show a project in a cell
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel?.text = projects[indexPath.row].name
+        
+        // We're Unwrapping this because of Obj-C and protocol issues
+        if let detail = items[indexPath.row] as? Project {
+            cell.textLabel?.text = detail.name
+        }
         return cell
         
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return items.count
+        
         
         /*
          
@@ -187,7 +214,7 @@ extension MasterListViewController {
          
          */
         
-        if !loading && projects.isEmpty {
+        if !loading && items.isEmpty {
             
             let label = UILabel()
             
@@ -203,13 +230,17 @@ extension MasterListViewController {
             label.textColor = UIColor.lightGrayColor()
             label.textAlignment = .Center
             tableView.backgroundView = label
+            
+            return 0
+        } else if loading {
+            return 0
+        } else {
+            return items.count
         }
-        
-        return projects.count
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("ShowProject", sender: indexPath)
     }
     
@@ -222,7 +253,7 @@ extension MasterListViewController {
             detailVC = segue.destinationViewController as? DetailTableViewController
             where segue.identifier == "ShowProject" {
             
-            let hashedId = projects[path.row].hashedId
+            let hashedId = items[path.row].hashedId
             detailVC.requestType = .Project(hashedId)
         }
         

@@ -47,7 +47,7 @@ public final class Project: WistiaDataItem, WistiaCollectionItem {
     public var viewingIsPublic: Bool
     
     public var name: String
-    public var summary: String
+    public var summary: String?
     
     public var mediaCount: Int
     
@@ -101,7 +101,7 @@ public final class Project: WistiaDataItem, WistiaCollectionItem {
      - parameter viewingIsPublic: `Boolean` A boolean indicating whether the project is available for public (anonymous) viewing.  Because public is a reserved keyword in Swift, renaming this for clarity.
      
      */
-    public init(id: Int, hashedId: String, publicId: String, name: String, summary: String, updated: String, created: String, mediaCount: Int, anonymousCanUpload: Bool = false, anonymousCanDownload: Bool = false, viewingIsPublic: Bool = false) {
+    public init(id: Int, hashedId: String, publicId: String, name: String, summary: String?, updated: String, created: String, mediaCount: Int, anonymousCanUpload: Bool = false, anonymousCanDownload: Bool = false, viewingIsPublic: Bool = false) {
         
         self.id = id
         self.hashedId = hashedId
@@ -109,7 +109,9 @@ public final class Project: WistiaDataItem, WistiaCollectionItem {
         
         
         self.name = name
-        self.summary = summary
+        self.summary = summary?
+            .stringByRemovingHTML()
+            .stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())
         
         self.mediaCount = mediaCount
         
@@ -124,6 +126,7 @@ public final class Project: WistiaDataItem, WistiaCollectionItem {
     }
     
     public var description: String {
-        return "Project: \(self.name)\nDescription:\(self.summary)"
+        guard let summary = summary where !summary.isEmpty else { return "No Description" }
+        return summary
     }
 }

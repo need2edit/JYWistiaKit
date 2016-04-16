@@ -226,7 +226,7 @@ public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_pa
                             
                             guard !items.isEmpty else { return completionHandler(.Error(Wistia.Error.EmptyProjects)) }
                             
-                            completionHandler(.Success(items))
+                            completionHandler(.Success(items.map {$0 as WistiaDataItem}))
                             
                         case .Medias:
                             
@@ -234,7 +234,7 @@ public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_pa
                             
                             guard !items.isEmpty else { return completionHandler(.Error(Wistia.Error.EmptyMedias)) }
                             
-                            completionHandler(.Success(items))
+                            completionHandler(.Success(items.map {$0 as Media}))
                             
                         }
                         

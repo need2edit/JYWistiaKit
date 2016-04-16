@@ -22,7 +22,7 @@
 		32BA959F1C87DB7F00FC46BB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA959E1C87DB7F00FC46BB /* Project.swift */; };
 		32BA95A11C87DB8600FC46BB /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A01C87DB8600FC46BB /* Media.swift */; };
 		32BA95A31C87DB8E00FC46BB /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A21C87DB8E00FC46BB /* Asset.swift */; };
-		32BA95A61C87DBA900FC46BB /* WistiaKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A51C87DBA900FC46BB /* WistiaKit.swift */; };
+		32BA95A61C87DBA900FC46BB /* Wistia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A51C87DBA900FC46BB /* Wistia.swift */; };
 		32BA95AA1C87DC6100FC46BB /* StatsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A91C87DC6100FC46BB /* StatsAPI.swift */; };
 		32BA95AC1C87DC7C00FC46BB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95AB1C87DC7C00FC46BB /* Router.swift */; };
 		32BA95AE1C87E0DA00FC46BB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95AD1C87E0DA00FC46BB /* API.swift */; };
@@ -32,7 +32,7 @@
 		32BA961D1C88E29800FC46BB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA961C1C88E29800FC46BB /* Request.swift */; };
 		32FE59B11CC188FD0066B342 /* WistiaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FE59A71CC188FD0066B342 /* WistiaKit.framework */; };
 		32FE59E71CC18C130066B342 /* WistiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 32BA95841C87DAB400FC46BB /* WistiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32FE59EA1CC18C890066B342 /* WistiaKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A51C87DBA900FC46BB /* WistiaKit.swift */; };
+		32FE59EA1CC18C890066B342 /* Wistia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A51C87DBA900FC46BB /* Wistia.swift */; };
 		32FE59EB1CC18C890066B342 /* StatsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A91C87DC6100FC46BB /* StatsAPI.swift */; };
 		32FE59EC1CC18C890066B342 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA959C1C87DB7400FC46BB /* Error.swift */; };
 		32FE59ED1CC18C890066B342 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95AB1C87DC7C00FC46BB /* Router.swift */; };
@@ -49,7 +49,7 @@
 		32FE59F81CC18C8A0066B342 /* Model+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA96161C87FA4800FC46BB /* Model+JSON.swift */; };
 		32FE59F91CC18C8A0066B342 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95AD1C87E0DA00FC46BB /* API.swift */; };
 		32FE59FA1CC18C8A0066B342 /* NSURL+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA961A1C88CDEC00FC46BB /* NSURL+QueryParams.swift */; };
-		32FE5A4F1CC199720066B342 /* WistiaKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A51C87DBA900FC46BB /* WistiaKit.swift */; };
+		32FE5A4F1CC199720066B342 /* Wistia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A51C87DBA900FC46BB /* Wistia.swift */; };
 		32FE5A501CC199720066B342 /* StatsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95A91C87DC6100FC46BB /* StatsAPI.swift */; };
 		32FE5A511CC199720066B342 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA959C1C87DB7400FC46BB /* Error.swift */; };
 		32FE5A521CC199720066B342 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA95AB1C87DC7C00FC46BB /* Router.swift */; };
@@ -107,7 +107,7 @@
 		32BA959E1C87DB7F00FC46BB /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Source/Project.swift; sourceTree = "<group>"; };
 		32BA95A01C87DB8600FC46BB /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Media.swift; path = Source/Media.swift; sourceTree = "<group>"; };
 		32BA95A21C87DB8E00FC46BB /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = Source/Asset.swift; sourceTree = "<group>"; };
-		32BA95A51C87DBA900FC46BB /* WistiaKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WistiaKit.swift; path = Source/WistiaKit.swift; sourceTree = "<group>"; };
+		32BA95A51C87DBA900FC46BB /* Wistia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wistia.swift; path = Source/Wistia.swift; sourceTree = "<group>"; };
 		32BA95A91C87DC6100FC46BB /* StatsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsAPI.swift; path = Source/StatsAPI.swift; sourceTree = "<group>"; };
 		32BA95AB1C87DC7C00FC46BB /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Source/Router.swift; sourceTree = "<group>"; };
 		32BA95AD1C87E0DA00FC46BB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Source/API.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 		32BA95831C87DAB400FC46BB /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				32BA95A51C87DBA900FC46BB /* WistiaKit.swift */,
+				32BA95A51C87DBA900FC46BB /* Wistia.swift */,
 				32BA959B1C87DB6700FC46BB /* Features */,
 				32BA95841C87DAB400FC46BB /* WistiaKit.h */,
 				32BA95861C87DAB400FC46BB /* Info.plist */,
@@ -465,7 +465,7 @@
 				32AE49B01CABB45B00EEBC1F /* String+HTML.swift in Sources */,
 				32BA961B1C88CDEC00FC46BB /* NSURL+QueryParams.swift in Sources */,
 				32BA95AA1C87DC6100FC46BB /* StatsAPI.swift in Sources */,
-				32BA95A61C87DBA900FC46BB /* WistiaKit.swift in Sources */,
+				32BA95A61C87DBA900FC46BB /* Wistia.swift in Sources */,
 				32AE49AF1CABB45B00EEBC1F /* JSON.swift in Sources */,
 				32AE49AE1CABB45B00EEBC1F /* APITemplate.swift in Sources */,
 				32BA959F1C87DB7F00FC46BB /* Project.swift in Sources */,
@@ -495,7 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32FE59EA1CC18C890066B342 /* WistiaKit.swift in Sources */,
+				32FE59EA1CC18C890066B342 /* Wistia.swift in Sources */,
 				32FE59EB1CC18C890066B342 /* StatsAPI.swift in Sources */,
 				32FE59EC1CC18C890066B342 /* Error.swift in Sources */,
 				32FE59ED1CC18C890066B342 /* Router.swift in Sources */,
@@ -527,7 +527,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32FE5A4F1CC199720066B342 /* WistiaKit.swift in Sources */,
+				32FE5A4F1CC199720066B342 /* Wistia.swift in Sources */,
 				32FE5A501CC199720066B342 /* StatsAPI.swift in Sources */,
 				32FE5A511CC199720066B342 /* Error.swift in Sources */,
 				32FE5A521CC199720066B342 /* Router.swift in Sources */,

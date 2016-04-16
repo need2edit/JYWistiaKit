@@ -176,23 +176,16 @@ public func setup(apiKey: String) {
 
 /// Lists Data Items from Wistia Library
 
-public enum SingleItemResult<T> {
+public enum Result<T> {
     case Success(T)
     case Error(ErrorType)
 }
 
-public enum CollectionResult<T> {
-    case Success([T])
-    case Error(ErrorType)
-}
-
-public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: CollectionResult<WistiaDataItem> -> Void) throws {
+public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_page: Int = 25, sortBy: SortByDescriptor = .Updated, sortDirection: SortDirection = .Ascending, completionHandler: Result<[WistiaDataItem]> -> Void) throws {
     
             guard let request = try requestType.request(page, per_page: per_page, sortDirection: sortDirection, sortBy: sortBy) else { throw Wistia.Error.InvalidRequest }
             
-            if Wistia.debugMode == .Some {
-                print(request.URL)
-            }
+            if Wistia.debugMode == .Some { print(request.URL) }
     
             
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (let data, let response, let error) -> Void in
@@ -203,9 +196,7 @@ public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_pa
                     
                 }
                 
-                if Wistia.debugMode == .Annoying {
-                    print(response)
-                }
+                if Wistia.debugMode == .Annoying { print(response) }
                 
                 // TODO: Handle the Wistia Docs Here...this is repetative for now
                 
@@ -226,9 +217,7 @@ public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_pa
                     if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [[String: AnyObject]] {
                         
                         
-                        if Wistia.debugMode == .Some {
-                            print(requestType.description)
-                        }
+                        if Wistia.debugMode == .Some { print(requestType.description) }
                         
                         switch requestType {
                             
@@ -267,18 +256,36 @@ public func list(requestType: WistiaCollectionRequestType, page: Int = 0, per_pa
             task.resume()
 }
 
-public typealias WistiaItemResultHandler = (item: WistiaDataItem?) -> Void
-public typealias WistiaCollectionResultHandler = (items: [WistiaDataItem]) -> Void
-
-public typealias MediaItemResultHandler = (media: Media?) -> Void
-public typealias ProjectItemResultHandler = (project: Project?) -> Void
-
-public func show(requestType: WistiaItemRequestType, completionHandler: WistiaItemResultHandler) throws {
+public func show(requestType: WistiaItemRequestType, completionHandler: Result<WistiaDataItem> -> Void) throws {
     
     do {
         guard let request = try requestType.request() else { throw Wistia.Error.InvalidRequest }
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (let data, let response, let error) -> Void in
+            
+            // FIXME: Refactor this, were repeating code here
+            
+            guard let response = response as? NSHTTPURLResponse else {
+                
+                return completionHandler(.Error(Wistia.Error.NoResponse))
+                
+            }
+            
+            if Wistia.debugMode == .Annoying {
+                print(response)
+            }
+            
+            // TODO: Handle the Wistia Docs Here...this is repetative for now
+            
+            switch response.statusCode {
+                
+            case 401:
+                
+                return completionHandler(.Error(Wistia.Error.InvalidAPIKey))
+                
+            default:
+                break
+            }
             
             do {
                 
@@ -289,26 +296,26 @@ public func show(requestType: WistiaItemRequestType, completionHandler: WistiaIt
                     
                     // TODO: Error Handling for Attempted Initialization
                     
-                    if Wistia.debugMode == .Some {
-                        print(requestType.description)
-                    }
+                    if Wistia.debugMode == .Some { print(requestType.description) }
                     
                     // TODO: This could be handled by a generic / protocol with a standard initilizer
                     switch requestType {
                         
                     case .Project:
-                        completionHandler(item: try Project(json: json))
+                        guard let item = try Project(json: json) else { throw Wistia.Error.EmptyProject }
+                        completionHandler(.Success(item))
                     case .Media:
-                        completionHandler(item: try Media(json: json))
-                        
+                       guard let item = try Media(json: json) else { throw Wistia.Error.EmptyMedia }
+                        completionHandler(.Success(item))
                     }
                     
                 }
                 
                 
             } catch {
+                
                 // TODO: Error Handling for No Result
-                completionHandler(item: nil)
+                completionHandler(.Error(Wistia.Error.NoData))
                 
             }
             

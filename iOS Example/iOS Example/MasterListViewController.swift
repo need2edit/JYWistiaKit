@@ -209,6 +209,25 @@ extension MasterListViewController {
         
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("ShowProject", sender: indexPath)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        // Make a Request to show the reset of the Project
+        
+        if let
+            path = sender as? NSIndexPath,
+            detailVC = segue.destinationViewController as? DetailTableViewController
+            where segue.identifier == "ShowProject" {
+            
+            let hashedId = projects[path.row].hashedId
+            detailVC.requestType = .Project(hashedId)
+        }
+        
+    }
+    
     
     
 }

@@ -17,8 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // Setup Wistia Kit with a Valid API Key
         WistiaKit.setup("my-wistia-api-goes-here")
+        
+        // Set a debugging level if you're curious what Wistia is up to
         Wistia.debugMode = .Annoying
+        
         return true
     }
 

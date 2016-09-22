@@ -1,7 +1,7 @@
 
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
  
-## Swift 3 udpate coming soon. I wouldn't use what you find here :P in anything Swift 2.2 or higher.
+## Swift 3 update coming soon. I wouldn't use what you find here :P in anything Swift 2.2 or higher.
 A Swift framework for working with Wistia. 
 
 Written by a fan of Wistia...so this is unofficial. 
